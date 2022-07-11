@@ -5,7 +5,7 @@ export default class ApiRequest {
 
     static baseUrl = "https://habits-kenzie.herokuapp.com/api/";
 
-    static token = JSON.parse(localStorage.getItem("@kenzie_blog-token"));
+    static token = JSON.parse(localStorage.getItem("@habits_kenzie-token"));
     
     
 
@@ -120,7 +120,7 @@ export default class ApiRequest {
         return response;
     }
 
-    
+
 
     static async deleteHabit(id){
         const resposne = await fetch(`${this.baseUrl}habits/${id}`, {
