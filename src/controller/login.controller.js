@@ -21,6 +21,9 @@ export default class Login {
 
         if (responseLogin.token) {
 
+            localStorage.setItem("@habits_kenzie-token", JSON.stringify(responseLogin.token))
+            localStorage.setItem("@habits_kenzie-userInfo", JSON.stringify(responseLogin.response))
+
             swal({
                 title: "Login realizado com sucesso!",
                 icon: "success",
