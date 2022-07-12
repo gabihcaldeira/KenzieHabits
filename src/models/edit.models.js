@@ -23,7 +23,10 @@ export default class EditModal{
         habit_description:  this.formElements[1].value,
         habit_category: this.formElements[2].value
       }
-    await ApiRequest.updateHabit(updateHabit,id)
+    const response = await ApiRequest.updateHabit(updateHabit,id)
+    if(response.habit_id){
+        swal("Sucesso", "Seu hábito foi editado", "success");
+    }
     return updateHabit
     }
 
