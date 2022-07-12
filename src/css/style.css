@@ -18,17 +18,22 @@
     --error-2: #F03839;
 
     --white: #FFFFFF;
+    --display-none: display-none;
 
 }
 
-
+body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Inter', sans-serif;
+}
 
 
 
 /* -----------------------------------LOGIN----------------------------------- */
 
 .body {
-
     width: 100vw;
     height: 100vh;
 
@@ -264,3 +269,171 @@
     }
 
 }
+
+/* -------------------------------MODAL EDITAR--------------------------------- */
+textarea:focus, input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+.modal {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.80);
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+
+
+.modal__inner {
+    width: 400px;
+    height: 450px;
+    background-color: white;
+    border-radius: 8px;
+    animation: zoomIn;
+    animation-duration: 1s;
+}
+.modal__inner--header{
+    display: flex;
+    width: 100%;
+    height: max-content;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.modal__inner--button{
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    color: #ADB5BD;
+    width: max-content;
+    height: max-content;
+    background-color: white;
+    border: none;
+    margin-right: 20px;
+    margin-top: 25px;
+}
+.modal__inner--button:hover{
+    color: black;
+}
+.modal__inner--title{
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 25px;
+}
+
+
+
+.modal__inner--form{
+    height: 60%;
+    margin-left: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+}
+
+.modal__inner__div{
+    gap: 4px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__inner__div--status{
+    margin-top: 5px;
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.modal__inner--label{
+    font-size: 14px;
+    font-weight: 400;
+    color: #343A40;
+}
+
+.modal__inner--inputTitle{
+    padding-left: 10px;
+    width: 85%;
+    height: 25px;
+    background-color: var(--grey-5);
+    border: none;
+    border-radius: 4px;
+}
+
+.modal__inner--inputDescription{
+    padding-left: 10px;
+    width: 85%;
+    height: 50px;
+    background-color: var(--grey-5);
+    border: none;
+    border-radius: 4px;
+}
+
+#inputCategoria{
+    width: 85%;
+    height: 25px;
+    background-color: var(--grey-5);
+    border: none;
+    border-radius: 4px;
+   
+}
+
+.modal__inner--label{   
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.modal__inner__div--buttons{
+
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    
+
+}
+.deleteButton{
+    width: 140px;
+    height: 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.saveButton{
+    width: 170px;
+    height: 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    background-color: rgba(160, 173, 249, 1)
+}
+
+.saveButton:hover{
+    background-color: var(--brand-1)
+}
+.deleteButton:hover{
+    background-color: var(--grey-3);
+}
+
+.display-none{
+    display: none; 
+}
+

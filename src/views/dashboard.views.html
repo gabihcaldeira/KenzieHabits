@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href= "/src/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+    <title>Dashboard</title>
+</head>
+<body>
+
+    <button id="48" class="modalAbrir">EDITAR</button>
+    <button id="47" class="modalAbrir">EDITAR</button>
+    <button id="51" class="modalAbrir">EDITAR</button>
+    
+
+
+    <div class="modal modal--edit display-none">
+        <div class="modal__inner">
+            <div class="modal__inner--header">            
+                <h1 class="modal__inner--title">Editar Hábito</h1>
+                <button class="modal__inner--button">X</button>
+            </div>
+
+
+            <form class="modal__inner--form">
+                <div class="modal__inner__div">
+                    <label for="iinputTitle" class="modal__inner--label">Título</label>
+                    <input type="text" class="modal__inner--inputTitle" id="inputTitle">
+                </div>
+                <div class="modal__inner__div">
+                    <label for="inputDescription" class="modal__inner--label">Descrição</label>
+                    <input type="text" class="modal__inner--inputDescription" id="inputDescription">
+                </div>
+                
+                <div class="modal__inner__div">
+                    <label for="inputCategoria" class="modal__inner--label">Categoria</label>
+                    <select id="inputCategoria" name="inputCategoria">
+                        <option value="saude">💜 Saúde</option>  
+                        <option value="estudos">🖊️ Estudos</option>
+                        <option value="casa">🏠 Casa</option>
+                        <option value="trabalho">🔨 Trabalho</option>
+                        <option value="lazer">🏖️Lazer</option>
+                  </select>
+                </div>
+                
+                <div class="modal__inner__div--status">
+                    <label for="status" class="modal__inner--label">Status</label>
+                    <input type="checkbox" id="status" name="status">
+                </div>
+
+                <div class="modal__inner__div--buttons">
+                    <button class="deleteButton">Excluir</button>
+                    <button class="saveButton">Salvar alterações</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="../models/edit.models.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>
