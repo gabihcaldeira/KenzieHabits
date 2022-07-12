@@ -253,7 +253,15 @@
 
 }
 
-.form__input {
+/* teste */
+
+
+
+
+
+/* teste ------------------------------*/
+
+.form__input, .form__title, .form__description, .form__category {
 
     padding: 9px 0px;
     gap: 10px;
@@ -268,7 +276,7 @@
 
 }
 
-.form__input:focus {
+.form__input:focus, .form__title:focus, .form__description:focus, .form__category:focus {
 
     background-color: var(--grey-6);
 
@@ -276,14 +284,14 @@
 
 }
 
-.form__input:hover {
+.form__input:hover, .form__title:hover, .form__description:hover{
 
     animation: pulse;
     animation-duration: 1s;
 
 }
 
-.form__button {
+.form__button, .form__btnCreate{
 
     box-sizing: border-box;
 
@@ -307,7 +315,7 @@
 
 }
 
-.form__button:hover {
+.form__button:hover, .form__btnClose:hover, .form__btnCreate:hover{
 
     animation: pulse;
     animation-duration: 1s;
@@ -315,6 +323,48 @@
     cursor: pointer;
 
 }
+/* dashboard-modal-create-task--------------------------------------------------> */
+.teste{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.form__header--divisory{
+    display:flex;
+    justify-content: space-between;
+    flex-direction:row-reverse;
+}
+
+.form__createTask{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    gap: 30px;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid black;  
+    font-family: 'Inter', sans-serif; 
+}
+
+.form__createTask h2 {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.form__btnClose{
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    border: 0;
+    padding:0;
+    width:20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--error-1);
+}
+/* dashboard-----------------------------------------------------------------> */
 
 
 
@@ -431,5 +481,6 @@
 
     font-size: 1rem;
     font-weight: 600;
+
 
 }
