@@ -120,7 +120,7 @@ export default class ApiRequest {
 
 
     static async deleteHabit(id){
-        const resposne = await fetch(`${this.baseUrl}habits/${id}`, {
+        const response = await fetch(`${this.baseUrl}habits/${id}`, {
         method: "DELETE",
         headers: {
             Authorization: `Bearer ${this.token}`
@@ -129,7 +129,7 @@ export default class ApiRequest {
     .then(response => response.json())
     .catch(err => console.log(err));
     
-        return resposne;
+        return response;
     }
 
     

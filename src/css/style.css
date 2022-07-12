@@ -18,6 +18,7 @@
     --error-2: #F03839;
 
     --white: #FFFFFF;
+    --black: #000000;
 
 }
 
@@ -36,6 +37,8 @@
     justify-content: center;
     align-items: center;
 
+    font-family: 'Inter', sans-serif;
+
 }
 
 @media (min-width: 1024px) {
@@ -44,7 +47,7 @@
 
         width: 100vw;
         height: 1204px;
-    
+
     }
 
 }
@@ -55,7 +58,7 @@
 
         width: 100vw;
         height: 100vh;
-    
+
     }
 
 }
@@ -64,8 +67,6 @@
 
     display: flex;
     justify-content: center;
-
-    font-family: 'Inter', sans-serif;
 
     border-radius: 8px;
 
@@ -312,5 +313,123 @@
     animation-duration: 1s;
 
     cursor: pointer;
+
+}
+
+
+
+
+
+/* -----------------------------------SECTION DELETE----------------------------------- */
+
+.section__delete {
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 32px;
+    gap: 32px;
+
+    background-color: var(--white);
+
+    border-radius: 8px;
+
+    animation: zoomIn;
+    animation-duration: 0.5s;
+
+}
+
+.close__div {
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.close__title {
+
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    color: var(--grey-1);
+
+}
+
+.close__button {
+
+    border: none;
+    background: none;
+
+    font-size: 1.25rem;
+    font-weight: 0;
+
+    color: var(--grey-3);
+
+}
+
+.warning__div {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+.warning__info {
+
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    color: var(--black);
+
+}
+
+.warning__more {
+
+    font-size: 1rem;
+    font-weight: 400;
+
+    color: var(--grey-2);
+
+}
+
+.buttons__div {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 10px;
+
+}
+
+.button__cancel {
+
+    background-color: var(--grey-5);
+    color: var(--grey-2);
+
+    border: 2px solid var(--grey-5);
+    border-radius: 4px;
+
+    padding: 12px 50px;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+}
+
+.button__delete {
+
+    background-color: var(--error-1);
+    color: var(--white);
+
+    border: 2px solid var(--error-1);
+    border-radius: 4px;
+
+    padding: 12px 50px;
+
+    font-size: 1rem;
+    font-weight: 600;
 
 }
