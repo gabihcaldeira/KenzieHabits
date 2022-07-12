@@ -12,24 +12,26 @@
     --grey-4: #E9ECEF;
     --grey-5: #F1F3F5;
     --grey-6: #F8F9FA;
-
     --sucess: #56CF8E;
     --error-1: #E64445;
     --error-2: #F03839;
-
+    
     --white: #FFFFFF;
     --black: #000000;
-
 }
 
-
+body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Inter', sans-serif;
+}
 
 
 
 /* -----------------------------------LOGIN----------------------------------- */
 
 .body {
-
     width: 100vw;
     height: 100vh;
 
@@ -253,7 +255,15 @@
 
 }
 
-.form__input {
+/* teste */
+
+
+
+
+
+/* teste ------------------------------*/
+
+.form__input, .form__title, .form__description, .form__category {
 
     padding: 9px 0px;
     gap: 10px;
@@ -268,7 +278,7 @@
 
 }
 
-.form__input:focus {
+.form__input:focus, .form__title:focus, .form__description:focus, .form__category:focus {
 
     background-color: var(--grey-6);
 
@@ -276,14 +286,14 @@
 
 }
 
-.form__input:hover {
+.form__input:hover, .form__title:hover, .form__description:hover{
 
     animation: pulse;
     animation-duration: 1s;
 
 }
 
-.form__button {
+.form__button, .form__btnCreate{
 
     box-sizing: border-box;
 
@@ -307,7 +317,7 @@
 
 }
 
-.form__button:hover {
+.form__button:hover, .form__btnClose:hover, .form__btnCreate:hover{
 
     animation: pulse;
     animation-duration: 1s;
@@ -315,6 +325,48 @@
     cursor: pointer;
 
 }
+/* dashboard-modal-create-task--------------------------------------------------> */
+.teste{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.form__header--divisory{
+    display:flex;
+    justify-content: space-between;
+    flex-direction:row-reverse;
+}
+
+.form__createTask{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    gap: 30px;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid black;  
+    font-family: 'Inter', sans-serif; 
+}
+
+.form__createTask h2 {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.form__btnClose{
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    border: 0;
+    padding:0;
+    width:20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--error-1);
+}
+/* dashboard-----------------------------------------------------------------> */
 
 
 
@@ -432,4 +484,173 @@
     font-size: 1rem;
     font-weight: 600;
 
+
 }
+
+/* -------------------------------MODAL EDITAR--------------------------------- */
+textarea:focus, input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+.modal {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.80);
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+
+
+.modal__inner {
+    width: 400px;
+    height: 450px;
+    background-color: white;
+    border-radius: 8px;
+    animation: zoomIn;
+    animation-duration: 1s;
+}
+.modal__inner--header{
+    display: flex;
+    width: 100%;
+    height: max-content;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.modal__inner--button{
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    color: #ADB5BD;
+    width: max-content;
+    height: max-content;
+    background-color: white;
+    border: none;
+    margin-right: 20px;
+    margin-top: 25px;
+}
+.modal__inner--button:hover{
+    color: black;
+}
+.modal__inner--title{
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 25px;
+}
+
+
+
+.modal__inner--form{
+    height: 60%;
+    margin-left: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+}
+
+.modal__inner__div{
+    gap: 4px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__inner__div--status{
+    margin-top: 5px;
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.modal__inner--label{
+    font-size: 14px;
+    font-weight: 400;
+    color: #343A40;
+}
+
+.modal__inner--inputTitle{
+    padding-left: 10px;
+    width: 85%;
+    height: 25px;
+    background-color: var(--grey-5);
+    border: none;
+    border-radius: 4px;
+}
+
+.modal__inner--inputDescription{
+    padding-left: 10px;
+    width: 85%;
+    height: 50px;
+    background-color: var(--grey-5);
+    border: none;
+    border-radius: 4px;
+}
+
+#inputCategoria{
+    width: 85%;
+    height: 25px;
+    background-color: var(--grey-5);
+    border: none;
+    border-radius: 4px;
+   
+}
+
+.modal__inner--label{   
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.modal__inner__div--buttons{
+
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    
+
+}
+.deleteButton{
+    width: 140px;
+    height: 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.saveButton{
+    width: 170px;
+    height: 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    background-color: rgba(160, 173, 249, 1)
+}
+
+.saveButton:hover{
+    background-color: var(--brand-1)
+}
+.deleteButton:hover{
+    background-color: var(--grey-3);
+}
+
+.display-none{
+    display: none; 
+}
+
