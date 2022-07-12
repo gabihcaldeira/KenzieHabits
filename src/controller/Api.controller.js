@@ -1,6 +1,3 @@
-
-
-
 export default class ApiRequest {
 
     static baseUrl = "https://habits-kenzie.herokuapp.com/api/";
