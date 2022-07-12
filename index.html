@@ -1,10 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kenzie Habit</title>
-  </head>
-  <body></body>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/css/reset.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <title>Login</title>
+</head>
+
+<body class="body">
+
+  <main class="main">
+
+    <section class="section section__infos">
+      <h1 class="infos__title">KenzieHabit</h1>
+
+      <p class="infos__description">
+        If you are going to use a <span class="description__span">passage</span> of Lorem Ipsum
+      </p>
+
+      <p class="infos__text">
+        you need to be sure there isn't anything
+      </p>
+    </section>
+    <section class="section section__login">
+      
+      <form action="#" class="form__login">
+        <h2 class="login__title">Login</h2>
+
+        <div class="div__form div__email">
+          <label for="email" class="form__label">Usuário</label>
+          <input type="text" id="email" placeholder="Digitar meu email" class="form__input form__email" required>
+        </div>
+
+        <div class="div__form div__password">
+          <label for="password" class="form__label">Senha</label>
+          <input type="password" id="password" placeholder="Digitar minha senha" class="form__input form__password"
+            required>
+        </div>
+
+        <button type="submit" class="form__button" id="btn__login">Entrar</button>
+      </form>
+
+    </section>
+
+  </main>
+
+  <script src="src/index.js" type="module"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+
 </html>
