@@ -36,8 +36,6 @@
     justify-content: center;
     align-items: center;
 
-    position: absolute;
-
 }
 
 .main {
@@ -49,14 +47,17 @@
 
     border-radius: 8px;
 
+    animation: backInLeft;
+    animation-duration: 1s;
+
 }
 
 .section {
 
-    width: 100vw;
+    width: 80vw;
     max-width: 408px;
 
-    margin: 0px 10px 0px 10px;
+    /* margin: 0px 10px 0px 10px; */
 
 }
 
@@ -113,6 +114,14 @@
 
 /* SECTION LOGIN */
 
+.section__login {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 .login__title {
 
     font-size: 1.25rem;
@@ -120,17 +129,34 @@
 
     color: var(--grey-1);
 
-    margin: 100px 0px 40px 0px;
+    text-align: center;
+
+}
+
+.form__login {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: 100%;
+
+    gap: 50px;
+
+    margin-bottom: 60px;
 
 }
 
 .div__form {
 
     display: flex;
+    align-items: center;
+
     flex-direction: column;
 
     max-width: 408px;
-    margin: 40px 0px 50px 0px;
+
+    gap: 5px;
 
 }
 
@@ -141,19 +167,20 @@
 
     color: var(--grey-2);
 
-    margin-bottom: 8px;
-
 }
 
 .form__input {
 
-    padding: 9px 18px;
+    padding: 9px 0px;
     gap: 10px;
 
     background: var(--grey-5);
 
     border: 2px solid var(--grey-5);
     border-radius: 4px;
+
+    width: 100%;
+    max-width: 408px;
 
 }
 
@@ -162,6 +189,13 @@
     background-color: var(--grey-6);
 
     outline: 2px solid var(--brand-1);
+
+}
+
+.form__input:hover {
+
+    animation: pulse;
+    animation-duration: 1s;
 
 }
 
@@ -187,11 +221,12 @@
     width: 100vw;
     max-width: 408px;
 
-    margin: 40px 0px 50px 0px;
-
 }
 
 .form__button:hover {
+
+    animation: pulse;
+    animation-duration: 1s;
 
     cursor: pointer;
 
@@ -222,22 +257,10 @@
 
     }
 
-    .login__title {
-
-        margin: 100px 5px 40px 110px;
-
-    }
-
     .div__form {
 
-        margin: 40px 110px 50px 110px;
-
-    }
-
-    .form__button {
-
-        margin: 40px 110px 50px 110px;
-
+    align-items: flex-start;
+    
     }
 
 }

@@ -41,15 +41,13 @@ export default class Login {
 
         }
 
-        this.btnLogin.addEventListener('click', async (e) => {
-
-            e.preventDefault()
-
-            this.requisitionLogin()
-        })
-
     }
 
 }
 
-Login.requisitionLogin()
+Login.btnLogin.addEventListener('click', async (e) => {
+
+    e.preventDefault()
+
+    Login.requisitionLogin()
+})
