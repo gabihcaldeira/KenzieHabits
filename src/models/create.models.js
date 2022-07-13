@@ -39,7 +39,6 @@ function modalCreator(){
 )
 return createModal
 }
-
 modalCreator()
 
 

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 /* -----------------------------------GLOBAIS----------------------------------- */
 
+
 :root {
 
     --brand-1: #415AF3;
@@ -20,7 +21,7 @@
     --white: #FFFFFF;
     --black: #000000;
     
-     --font: 'Inter', sans-serif;
+    --font: 'Inter', sans-serif;
 }
 
 body{
@@ -33,7 +34,8 @@ body{
 /* -----------------------------------HEADER USER----------------------------------- */
 
 .header__user{   
-    height: 173px;
+    height: 60px;    
+    margin-bottom: 150px;
 }
 
 .header__user--primary{

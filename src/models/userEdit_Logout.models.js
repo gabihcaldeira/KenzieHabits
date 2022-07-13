@@ -20,7 +20,12 @@ export default class UserEditLogout{
             'Deslogado!',
             'redirecionando para o Login.',
             'success'
-          ).then(() => window.location.href = '../../index.html')
+          ).then(() => {
+            localStorage.removeItem("@habits_kenzie-token")
+            localStorage.removeItem("@habits_kenzie-userInfo")
+            window.location.href = '../../index.html'
+          })
+          
         }
       })
           
