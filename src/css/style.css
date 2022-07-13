@@ -526,6 +526,10 @@ body{
     border-radius: 50%;
     background-color: var(--error-1);
 }
+
+.close__buttonCreate{
+    display:none;
+}
 /* dashboard-----------------------------------------------------------------> */
 
 
