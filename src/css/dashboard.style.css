@@ -154,8 +154,10 @@
 
 /*----------------------- MAIN ---------------------*/
 main {
+
     width: 60%;
     margin: 0 auto 30px;
+
     background-color: var(--white);
     font-family: var(--font);
     box-sizing: border-box;
@@ -172,6 +174,18 @@ main {
     text-decoration: underline;
     color: var(--grey-1);
     margin-top: 150px;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.container_habits{
+    width: 60%;    
+    background-color: var(--white);
+    font-family: var(--font);
+    box-sizing: border-box;
+    margin-bottom: 50px;
+
 }
 
 .table {

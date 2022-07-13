@@ -17,9 +17,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
     <title>Homepage</title>
 
+
 </head>
 
 <body>
+
 
 
     <header class="header">
@@ -32,16 +34,18 @@
                     <img class="dropdown__button"
                         src="http://images4.fanpop.com/image/photos/19600000/Miss-Granger-hermione-granger-19628472-165-214.jpg"
                         alt="avatarUser">
+
+   
                 </figure>
 
                 <div class="dropdown__content">
                     <a id="btn__edituser--avatar" href="#">Editar perfil</a>
                     <a id="btn__leave--user" href="#">Sair do app</a>
                 </div>
-
             </div>
 
         </section>
+
 
         <section class="header__secondary">
 
@@ -52,14 +56,18 @@
                         alt="avatarUser">
                 </figure>
                 <h2 class="header__username"> Hermione Granger</h2>
+
             </div>
 
         </section>
     </header>
 
 
-    <main>
 
+
+    <main>
+        <div class="container_habits">
+            
         <section class="buttons">
 
             <h2 class="buttons__title">Tarefas</h2>
@@ -69,7 +77,9 @@
                 <button class="buttons__button button--black">Concluídos</button>
                 <button class="buttons__button button--blue">Criar</button>
 
+
             </div>
+
         </section>
 
         <section class="table" id="table">
@@ -78,7 +88,6 @@
                 <p>Você ainda não tem nenhum hábito!!</p>
             </div>
             <!-- <table>
-
                 <th class="table__header">
                 <td class="table__data table__data--header">Status</td>
                 <td class="table__data table__data--header">Título</td>
@@ -98,7 +107,10 @@
 
             <button class="table__button button--blue">Carregar Mais</button> -->
         </section>
+        </div>
     </main>
+
+
 
 
 
@@ -108,7 +120,6 @@
                 <h1 class="modal__inner--title">Editar Hábito</h1>
                 <button class="modal__inner--button">X</button>
             </div>
-
 
             <form class="modal__inner--form">
                 <div class="modal__inner__div">
@@ -144,16 +155,19 @@
         </div>
     </div>
     
+    <!-----
     <div id="popup_edit" class="display-none">
         <img class="popup__sucess" src="../assets/img/edit_habit.jpg">
     </div>
-
     <div id="popup_create" class="display-none">
         <img class="popup__sucess" src="../assets/img/habit_create.jpg">
+
     </div> -->
 
     <script type="module" src="../index.js"></script>
+
     <script type="module" src="../scripts/dashboard.scripts.js"></script>
+    <script type="module" src="../index.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
