@@ -3,11 +3,6 @@ import ApiRequest from "../controller/Api.controller.js";
 class Dashboard {
     // static token = JSON.parse(localStorage.getItem("@habits_kenzie-token"))
 
-    static async getAllHabits() {
-        const response = await ApiRequest.readAllHabits()
-        return response
-    }
-
     static showTableHabits(habits) {
         const section = document.getElementById('table')
         section.innerHTML = ""
