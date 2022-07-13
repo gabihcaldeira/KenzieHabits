@@ -505,6 +505,7 @@ body{
     cursor: pointer;
 
 }
+
 /* dashboard-modal-create-task--------------------------------------------------> */
 .modalTwo {
     display: flex;
@@ -912,16 +913,20 @@ textarea:focus, input:focus {
     display: flex;
     position: absolute;   
     
-    bottom: 5%;
-    right: 5%; 
+    bottom: -65%;
+    right: -5%; 
     width: 78%;
 
     animation: bouncein;
     animation-duration: 1s;
 }
 
+
+
+
 @media screen and (min-width: 768px) {
     .popup__sucess {
+        bottom: -70%;
         right: 5%; 
         width: 38%;
     }
