@@ -29,8 +29,7 @@ export default class Login {
                 icon: "success",
                 button: false,
                 timer: 1500
-            })
-            /* .then(() => window.location.href = '') */
+            }).then(() => window.location.href = "/src/views/dashboard.views.html")
 
         }
         else if (responseLogin.message) {
