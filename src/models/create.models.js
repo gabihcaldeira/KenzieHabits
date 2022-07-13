@@ -1,8 +1,10 @@
 import ApiRequest from '../controller/Api.controller.js'
 function modalCreator(){
-    const body = document.querySelector('body')
-    const createModal = body.insertAdjacentHTML('beforeend',
-    `<div class = "teste close__buttonCreate">
+    const modal = document.querySelector('body')
+    const createModal = modal.insertAdjacentHTML('beforeend',
+    `
+    <div class = 'modalTwo close__buttonCreate'>
+    <div class = "teste">
     <form action="#" class = "form__createTask">
         <div class = "form__header--divisory">
             <button class = form__btnClose>
@@ -18,7 +20,7 @@ function modalCreator(){
 
         <div class = "form__description--divisory">
             <label for="description">Descrição</label>
-            <input type="text" placeholder = "Digite a descrição" class = 'form__description' id = "description">
+            <textarea placeholder = "Digite a descrição" class = 'form__description' name="" id="description" cols="30" rows="10"></textarea>
         </div>
 
         <div class = "form__category--divisory">
@@ -35,6 +37,7 @@ function modalCreator(){
 
         <button type = "submit" class = "form__btnCreate">Inserir</button>
     </form>
+</div>
 </div>`
 )
 return createModal
@@ -50,7 +53,7 @@ botaoSair.addEventListener('click', (event)=>{
 })
 
 export default class CreateModal{
-    static modal = document.querySelector('.teste')
+    static modal = document.querySelector('.modalTwo')
 
     static form = document.querySelector('.form__createTask')
     static formElements = [...this.form.elements]

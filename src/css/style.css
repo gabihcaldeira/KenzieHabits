@@ -428,7 +428,7 @@ body{
 
 /* teste ------------------------------*/
 
-.form__input, .form__title, .form__description, .form__category {
+.form__input {
 
     padding: 9px 0px;
     gap: 10px;
@@ -436,6 +436,21 @@ body{
     background: var(--grey-5);
 
     border: 2px solid var(--grey-5);
+    border-radius: 4px;
+
+    width: 100%;
+    max-width: 408px;
+
+}
+
+.form__title, .form__description, .form__category{
+
+    padding: 9px 0px;
+    gap: 10px;
+
+    background: var(--grey-5);
+
+    border: none;
     border-radius: 4px;
 
     width: 100%;
@@ -491,11 +506,76 @@ body{
 
 }
 /* dashboard-modal-create-task--------------------------------------------------> */
+.modalTwo {
+    display: flex;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.80);
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.form__title, .form__description{
+    padding: 10;
+    margin: 0;
+}
+
+.form__title--divisory, .form__description--divisory, .form__category--divisory{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media(max-width: 350px){
+    .form__title--divisory, .form__description--divisory, .form__category--divisory{
+            width: 300px;
+            margin-left: 10px;
+    }
+    .form__btnCreate{
+    box-sizing: border-box;
+
+    align-items: center;
+    padding: 12px 50px;
+    gap: 10px;
+
+    background: var(--brand-1);
+
+    border: 2px solid var(--brand-1);
+    border-radius: 4px;
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: var(--white);
+
+    
+
+}
+}
+
+
+.form__description{
+    display: flex;
+    flex-direction: column;
+    height: 10vh;
+    resize: none;
+}
+
+
+
 .teste{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    background-color: white;
+    border-radius: 15px;
 }
 
 .form__header--divisory{
@@ -509,9 +589,7 @@ body{
     flex-direction: column;
     justify-content: center; 
     gap: 30px;
-    padding: 30px;
-    border-radius: 10px;
-    border: 1px solid black;  
+    padding: 30px; 
     font-family: 'Inter', sans-serif; 
 }
 
@@ -535,13 +613,7 @@ body{
 .close__buttonCreate{
     display:none;
 }
-/* dashboard-----------------------------------------------------------------> */
-
-
-
-
-
-/* -----------------------------------SECTION DELETE----------------------------------- */
+/*DELETE----------------------------------- */
 
 .section__delete {
 
