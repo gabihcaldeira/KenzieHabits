@@ -1,9 +1,21 @@
-import Login from "./controller/login.controller.js";
+import {CreateModal, CreateHabitModal} from "./models/create.models.js";
 
-Login.btnLogin.addEventListener('click', async (e) => {
+CreateHabitModal.modalCreator()
 
-    e.preventDefault()
+const botaoModal = document.querySelector('#openModal')
 
-    Login.requisitionLogin()
-    
+        botaoModal.addEventListener('click', (event)=>{
+            event.preventDefault();
+            CreateModal.modal.classList.remove('close__buttonCreate')
+            
+        
+        })
+
+CreateModal.botaoSair.addEventListener('click', (event)=>{
+    event.preventDefault()
+    CreateModal.modal.classList.add('close__buttonCreate')
+})
+CreateModal.btnCreate.addEventListener('click', async (event)=>{
+    event.preventDefault();
+    console.log(await CreateModal.createHabit())
 })
