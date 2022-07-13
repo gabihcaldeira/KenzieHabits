@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <script src="https://kit.fontawesome.com/8aa664244c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/dashboard.style.css">     
     <link rel="stylesheet" href= "/src/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
-    <title>Dashboard</title>
+   <title>Homepage</title>
+   
 </head>
-<body>        
+   
+<body>
 
-    <!------
-    <button id="48" class="modalAbrir">EDITAR</button>
-    <button id="47" class="modalAbrir">EDITAR</button>
-    <button id="51" class="modalAbrir">EDITAR</button>
     
-    --->
-
     <header class="header__user">
-
         <section class="header__user--primary">
             <h1 class="header__user--title">KenzieHabit</h1>
 
@@ -36,10 +36,11 @@
                 <a id="btn__edituser--avatar" href="#">Editar perfil</a>
                 <a id="btn__leave--user" href="#">Sair do app</a>                
                 </div>
+
             </div>
 
         </section>
-
+        
         <section class="header__user--secondary">
 
             <div class="container__secondary">
@@ -50,8 +51,49 @@
             </div>
 
         </section>
-
     </header>
+   
+
+    <main>
+
+        <section class="buttons">
+
+            <h2 class="buttons__title">Tarefas</h2>
+
+            <div>
+                <button class="buttons__button button--black">Todos</button>
+                <button class="buttons__button button--black">Concluídos</button>
+                <button class="buttons__button button--blue">Criar</button>
+    
+        <section class="table" id="table">
+
+            <div>
+                <p>Você ainda não tem nenhum hábito!!</p>
+            </div>
+            <!-- <table>
+
+                <th class="table__header">
+                <td class="table__data table__data--header">Status</td>
+                <td class="table__data table__data--header">Título</td>
+                <td class="table__data table__data--header">Descrição</td>
+                <td class="table__data  table__data--header">Categoria</td>
+                <td class="table__data table__data--header">Editar</td>
+                </th>
+
+                <tr>
+                    <td class="table__data"> <input type="checkbox" name="status" value=""></td>
+                    <td class="table__data"></td>
+                    <td class="table__data"></td>
+                    <td class="table__data"></td>
+                    <td class="table__data"></td>
+                </tr>
+            </table>
+
+            <button class="table__button button--blue">Carregar Mais</button> -->
+        </section>
+    </main>
+   
+        
 
     <div class="modal modal--edit display-none">
         <div class="modal__inner">
@@ -94,9 +136,6 @@
             </form>
         </div>
     </div>
-
-
-
     
     <div id="popup_edit" class="display-none">
         <img class="popup__sucess" src="../assets/img/edit_habit.jpg">
@@ -107,6 +146,7 @@
     </div>
 
     <script type="module" src="../index.js"></script>
+    <script type="module" src="../scripts/dashboard.scripts.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
