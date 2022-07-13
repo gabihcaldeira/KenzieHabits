@@ -8,6 +8,16 @@ main {
     box-sizing: border-box;
 }
 
+.table div>p {
+    font-family: var(--font);
+    font-size: 2rem;
+    font-family: 500;
+    font-style: italic;
+    text-decoration: underline;
+    color: var(--grey-1);
+    margin-top: 150px;
+}
+
 .table {
     display: flex;
     flex-direction: column;
