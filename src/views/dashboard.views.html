@@ -1,19 +1,58 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <script src="https://kit.fontawesome.com/8aa664244c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/dashboard.style.css">
-    <title>Homepage</title>
+    <link rel="stylesheet" href="../css/dashboard.style.css">     
+    <link rel="stylesheet" href= "/src/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+   <title>Homepage</title>
+   
 </head>
-
+   
 <body>
 
-    <header></header>
+    
+    <header class="header__user">
+        <section class="header__user--primary">
+            <h1 class="header__user--title">KenzieHabit</h1>
+
+            <div class="dropdown">
+
+                <figure class="header__container--avatarprimary">
+                    <img class="dropbtn header__user--avatarprimary" src="http://images4.fanpop.com/image/photos/19600000/Miss-Granger-hermione-granger-19628472-165-214.jpg" alt="avatarUser">
+                </figure>
+
+                <div class="dropdown-content">
+                <a id="btn__edituser--avatar" href="#">Editar perfil</a>
+                <a id="btn__leave--user" href="#">Sair do app</a>                
+                </div>
+
+            </div>
+
+        </section>
+        
+        <section class="header__user--secondary">
+
+            <div class="container__secondary">
+            <figure class="header__container--avatarsecondary">
+                <img class="header__user--avatarsecondary" src="http://images4.fanpop.com/image/photos/19600000/Miss-Granger-hermione-granger-19628472-165-214.jpg" alt="avatarUser">
+            </figure>
+            <h2 class="header__user--usernamesecondary"> Hermione Granger</h2>
+            </div>
+
+        </section>
+    </header>
+   
 
     <main>
 
@@ -25,10 +64,7 @@
                 <button class="buttons__button button--black">Todos</button>
                 <button class="buttons__button button--black">Concluídos</button>
                 <button class="buttons__button button--blue">Criar</button>
-            </div>
-
-        </section>
-
+    
         <section class="table" id="table">
 
             <div>
@@ -55,9 +91,63 @@
 
             <button class="table__button button--blue">Carregar Mais</button> -->
         </section>
-
     </main>
-    <script type="module" src="../scripts/dashboard.scripts.js"></script>
-</body>
+   
+        
 
+    <div class="modal modal--edit display-none">
+        <div class="modal__inner">
+            <div class="modal__inner--header">            
+                <h1 class="modal__inner--title">Editar Hábito</h1>
+                <button class="modal__inner--button">X</button>
+            </div>
+
+
+            <form class="modal__inner--form">
+                <div class="modal__inner__div">
+                    <label for="iinputTitle" class="modal__inner--label">Título</label>
+                    <input type="text" class="modal__inner--inputTitle" id="inputTitle">
+                </div>
+                <div class="modal__inner__div">
+                    <label for="inputDescription" class="modal__inner--label">Descrição</label>
+                    <input type="text" class="modal__inner--inputDescription" id="inputDescription">
+                </div>
+                
+                <div class="modal__inner__div">
+                    <label for="inputCategoria" class="modal__inner--label">Categoria</label>
+                    <select id="inputCategoria" name="inputCategoria">
+                        <option value="saude">💜 Saúde</option>  
+                        <option value="estudos">🖊️ Estudos</option>
+                        <option value="casa">🏠 Casa</option>
+                        <option value="trabalho">🔨 Trabalho</option>
+                        <option value="lazer">🏖️Lazer</option>
+                  </select>
+                </div>
+                
+                <div class="modal__inner__div--status">
+                    <label for="status" class="modal__inner--label">Status</label>
+                    <input type="checkbox" id="status" name="status">
+                </div>
+
+                <div class="modal__inner__div--buttons">
+                    <button class="deleteButton">Excluir</button>
+                    <button class="saveButton">Salvar alterações</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div id="popup_edit" class="display-none">
+        <img class="popup__sucess" src="../assets/img/edit_habit.jpg">
+    </div>
+
+    <div id="popup_create" class="display-none">
+        <img class="popup__sucess" src="../assets/img/habit_create.jpg">
+    </div>
+
+    <script type="module" src="../index.js"></script>
+    <script type="module" src="../scripts/dashboard.scripts.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
 </html>
