@@ -1,0 +1,149 @@
+@import url("./style.css");
+
+main {
+    width: 60%;
+    margin: auto;
+    background-color: var(--white);
+    font-family: var(--font);
+    box-sizing: border-box;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    cursor: pointer;
+}
+
+.buttons {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons__title {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.buttons__button,
+.table__button {
+    background: none;
+    border: none;
+    font-family: var(--font);
+    margin-left: 30px;
+}
+
+.button--black {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.button--blue {
+    background-color: var(--brand-1);
+    color: var(--white);
+    border-radius: .25rem;
+    font-size: .87rem;
+    font-weight: 600;
+    padding: 7.5px 28px;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+table,
+.table__row {
+    border-collapse: collapse;
+    border: 1.4px solid var(--grey-4);
+}
+
+.table__header {
+    width: 100%;
+    height: 60px;
+}
+
+.table__data--header {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--grey-3);
+}
+
+.table__row {
+    height: 49px;
+}
+
+.table__data {
+    text-align: left;
+    overflow: hidden;
+    vertical-align: middle;
+    padding: 0 12px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* .checkBox {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+}
+
+.table__data--check>input {
+    /* remover checkbox default*/
+/* appearance: none;
+margin: 0;
+width: 17px;
+height: 15px;
+border-radius: 4px;
+border: 2px solid var(--grey-3)
+} */
+
+/* .checkmark {
+    display: block;
+    margin: auto;
+} */
+
+/* input[type="checkbox"]:checked~.checkmark {
+    background-color: var(--sucess);
+    border: 2px solid var(--sucess);
+
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkBox input[type="checkbox"]:checked~.checkmark:after {
+    display: block;
+}
+
+.checkBox .checkmark:after {}
+
+ .table__data--category>span {
+    font-size: .87rem;
+    background-color: var(--brand-3);
+    color: var(--brand-1);
+    border-radius: 4px;
+    padding: 3px 12px;
+} */
+
+.table__data--btn {
+    text-align: center;
+}
+
+.table__data--btn>button {
+    background: none;
+    border: none;
+    color: var(--grey-3);
+    font-size: 1.5rem;
+}
