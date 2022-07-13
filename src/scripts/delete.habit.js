@@ -6,7 +6,9 @@ deleteButton.addEventListener('click', async (e) => {
 
     const id = e.target.value
 
-    DeleteHabitModal.create(id)
+    const clearSection = document.querySelector('.section__delete')
+
+    DeleteHabitModal.create(id, clearSection)
 
 })
 
