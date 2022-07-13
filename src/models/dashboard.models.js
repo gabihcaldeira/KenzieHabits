@@ -1,7 +1,8 @@
 import ApiRequest from "../controller/Api.controller.js";
+import DashboardActions from "../controller/dashboard.controller.js";
 
 class Dashboard {
-    // static token = JSON.parse(localStorage.getItem("@habits_kenzie-token"))
+    static tableLength = 10;
 
     static showTableHabits(habits) {
         const section = document.getElementById('table')
@@ -19,34 +20,53 @@ class Dashboard {
 
         table.append(tableHeader)
 
-        habits.forEach(({ habit_id, habit_title, habit_description, habit_category, habit_status }) => {
+        let length = this.tableLength
+        let maxHabits = (habits.length > length) ? length : habits.length;
+
+        for (let index = 0; index < maxHabits; index++) {
+
+            let habit = habits[index];
+            let { habit_id, habit_title, habit_description, habit_category, habit_status } = habit;
+
+
             const tr = document.createElement('tr')
             tr.className = 'table__row';
 
             let checkbox = ``;
+            let habitTitle = `<td class="table__data">${habit_title}</td>`
             if (habit_status) {
-                checkbox = `<span class="checkBox"><input type="checkbox" name="status" checked value="${habit_id}"><span class="checkmark"></span></span>`;
+                checkbox = `<span class="checkBox"><input type="checkbox" name="status" disabled checked value="${habit_id}"><span class="checkmark"></span></span>`;
+                habitTitle = `<td class="table__data" style="text-decoration:line-through">${habit_title}</td>`
             } else {
                 checkbox = `<span class="checkBox"><input type="checkbox" name="status" value="${habit_id}"><span class="checkmark"></span></span>`;
             }
 
             tr.innerHTML = `
                 <td class="table__data table__data--check">${checkbox}</td>
-                <td class="table__data">${habit_title}</td>
+                ${habitTitle}
                 <td class="table__data">${habit_description}</td>
                 <td class="table__data table__data--category"> <span>${habit_category}</span></td>
-                <td class="table__data table__data--btn"><button class="fa-solid fa-ellipsis"></button></td>
+                <td class="table__data table__data--btn"><button id="${habit_id}" class="fa-solid fa-ellipsis"></button></td>
             `;
 
 
             table.append(tr)
-        });
+        }
 
-        const buttonMoreHabits = document.createElement('button')
-        buttonMoreHabits.className = "table__button button--blue"
-        buttonMoreHabits.innerText = "Carregar Mais"
+        section.append(table)
 
-        section.append(table, buttonMoreHabits)
+        if (habits.length > maxHabits) {
+            const buttonMoreHabits = document.createElement('button')
+            buttonMoreHabits.className = "table__button button--blue"
+            buttonMoreHabits.innerText = "Carregar Mais"
+            section.append(buttonMoreHabits)
+            buttonMoreHabits.addEventListener('click', () => {
+                this.tableLength += 10
+                this.showTableHabits(habits)
+                DashboardActions.getEditHabitModal()
+            });
+        }
+        DashboardActions.completeHabit()
     }
 }
 
