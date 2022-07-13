@@ -1,9 +1,5 @@
-import Login from "./controller/login.controller.js";
 
-Login.btnLogin.addEventListener('click', async (e) => {
+import UserEditLogout from "./models/userEdit_Logout.models.js";
 
-    e.preventDefault()
 
-    Login.requisitionLogin()
-    
-})
+UserEditLogout.btnLogout.addEventListener('click', () => UserEditLogout.logout())

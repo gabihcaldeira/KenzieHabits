@@ -48,3 +48,9 @@ export default class Login {
 
 }
 
+
+Login.btnLogin.addEventListener('click', async (e) => {
+    e.preventDefault()
+    await Login.requisitionLogin()    
+})
+
