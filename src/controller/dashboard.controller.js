@@ -30,11 +30,12 @@ class DashboardActions {
     }
 
     static completeHabit() { //funciona!
-        const checkboxes = document.querySelectorAll('input[type=checkbox]')
+        const checkboxes = document.querySelectorAll('.checkmark')
+
         checkboxes.forEach((checkbox) => {
-            checkbox.addEventListener('change', async (event) => {
-                console.log(event.target)
-                if (event.target.checked) {
+            checkbox.addEventListener('click', async (event) => {
+                const check = checkbox.previousElementSibling
+                if (!check.checked) {
                     Swal.fire({
                         title: 'Você quer completar o hábito?',
                         text: "Você não poderá desfazer essa ação!",
