@@ -8,7 +8,7 @@ class DashboardActions {
         let response = await ApiRequest.readAllHabits()
         response = response.sort((a, b) => b.habit_id - a.habit_id)
 
-        console.log(response)
+        // console.log(response)
 
         return response
     }
@@ -35,6 +35,7 @@ class DashboardActions {
         const checkboxes = document.querySelectorAll('input[type=checkbox]')
         checkboxes.forEach((checkbox) => {
             checkbox.addEventListener('change', async (event) => {
+                console.log(event.target)
                 if (event.target.checked) {
                     Swal.fire({
                         title: 'Você quer completar o hábito?',
