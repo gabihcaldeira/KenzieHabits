@@ -51,9 +51,9 @@ class DashboardActions {
                                 '',
                                 'success'
                             ).then(() => event.target.disabled = true)
-                                .then(async () => await ApiRequest.completeHabit(event.target.value))
+                                .then(async () => await ApiRequest.completeHabit(event.target.id))
                                 .then(async () => {
-                                    const allHabits = await ApiRequest.readAllHabits()
+                                    const allHabits = await Dashboard.getAllHabits()
                                     Dashboard.showTableHabits(allHabits)
                                 })
                         } else {
