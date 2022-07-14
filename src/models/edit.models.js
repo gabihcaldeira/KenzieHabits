@@ -36,7 +36,8 @@ export class ModalEditHabit {
                
                <div class="modal__inner__div--status">
                    <label for="status" class="modal__inner--label">Status</label>
-                   <input type="checkbox" id="status" name="status">
+                   <label class="new__checkbox"><input type="checkbox" id="status" name="status"><span class="checkmark"></span></label>
+                   
                </div>
    
                <div class="modal__inner__div--buttons">
