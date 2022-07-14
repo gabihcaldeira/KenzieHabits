@@ -49,7 +49,12 @@ CreateEditProfile.botaoModalEdit.addEventListener('click', (event) => {
     CreateEditProfile.modal.classList.remove('close__buttonCreate')
 })
 
+console.log(CreateEditProfile.botaoSair)
+
 CreateEditProfile.botaoSair.addEventListener('click', (event) => {
+
+    
+
     event.preventDefault()
     CreateEditProfile.modal.classList.add('close__buttonCreate')
 })

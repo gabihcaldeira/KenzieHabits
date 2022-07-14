@@ -1,5 +1,6 @@
 import ApiRequest from '../controller/Api.controller.js'
 import Dashboard from '../models/dashboard.models.js'
+import DashboardActions from '../controller/dashboard.controller.js'
 
 export class CreateHabitModal{
     
@@ -8,7 +9,7 @@ static modalCreator(){
     const createModal = modal.insertAdjacentHTML('beforeend',
     `
     <div class = 'modalTwo close__buttonCreate'>
-    <div class = "teste">
+    <div class = "modalOne">
     <form action="#" class = "form__createTask">
         <div class = "form__header--divisory">
             <button class = form__btnClose>
@@ -72,7 +73,7 @@ export class CreateModal{
             showConfirmButton: false,
             timer: 1500
           }).then(async ()=> {
-            const allHabits = await ApiRequest.readAllHabits() 
+            let allHabits = await DashboardActions.getAllHabits()
             Dashboard.showTableHabits(allHabits) 
             this.modal.classList.add('close__buttonCreate')           
         })        

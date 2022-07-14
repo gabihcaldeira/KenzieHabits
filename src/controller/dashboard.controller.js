@@ -5,7 +5,11 @@ import { EditModal, ModalEditHabit } from "../models/edit.models.js"
 class DashboardActions {
 
     static async getAllHabits() {
-        const response = await ApiRequest.readAllHabits()
+        let response = await ApiRequest.readAllHabits()
+        response = response.sort((a, b) => b.habit_id - a.habit_id)
+
+        console.log(response)
+
         return response
     }
 
@@ -21,7 +25,8 @@ class DashboardActions {
         const button = document.getElementsByClassName('buttons__button')[1]
         button.addEventListener('click', async () => {
             const allHabits = await this.getAllHabits()
-            const filteredHabits = allHabits.filter(({ habit_status }) => habit_status == true)
+            let filteredHabits = allHabits.filter(({ habit_status }) => habit_status == true)
+            filteredHabits.sort((a, b) => b.habit_id - a.habit_id)
             Dashboard.showTableHabits(filteredHabits)
         });
     }
@@ -97,7 +102,8 @@ class DashboardActions {
         form.addEventListener('click', async (event) => {
             event.preventDefault()
             const selectedOption = form[0].value
-            const response = await ApiRequest.readByCategory(selectedOption)
+            let response = await ApiRequest.readByCategory(selectedOption)
+            response = response.sort((a, b) => b.habit_id - a.habit_id)
             Dashboard.showTableHabits(response)
         })
     }

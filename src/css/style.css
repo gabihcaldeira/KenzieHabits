@@ -268,6 +268,7 @@ body {
 
 .form__input,
 .form__title,
+.form__userImg,
 .form__description,
 .form__category {
 
@@ -310,7 +311,8 @@ body {
 .form__input:focus,
 .form__title:focus,
 .form__description:focus,
-.form__category:focus, .form__userImg:focus{
+.form__category:focus,
+.form__userImg:focus {
 
     background-color: var(--grey-6);
 
@@ -320,7 +322,8 @@ body {
 
 .form__input:hover,
 .form__title:hover,
-.form__description:hover, .form__userImg:hover {
+.form__description:hover,
+.form__userImg:hover {
 
 
     animation: pulse;
@@ -366,7 +369,6 @@ body {
 }
 
 /* dashboard-modal-create-task--------------------------------------------------> */
-.teste,
 .modalTwo,
 .modalThree {
 
@@ -386,8 +388,8 @@ body {
 
 
 .form__title,
-.form__description, 
-.form__userImg{
+.form__description,
+.form__userImg {
 
     padding: 10;
     margin: 0;
@@ -398,7 +400,7 @@ body {
 .form__description--divisory,
 .form__category--divisory,
 .form__username--divisory,
-.form__userImg--divisory{
+.form__userImg--divisory {
 
     display: flex;
     flex-direction: column;
@@ -410,7 +412,8 @@ body {
 
     .form__title--divisory,
     .form__description--divisory,
-    .form__category--divisory, .form__username--divisory,
+    .form__category--divisory,
+    .form__username--divisory,
     .form__userImg--divisory {
         width: 300px;
         margin-left: 10px;
@@ -449,7 +452,7 @@ body {
 
 
 
-.teste {
+.modalOne {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -465,7 +468,7 @@ body {
 
 
 .form__createTask,
-.form__editProfile{
+.form__editProfile {
 
     display: flex;
     flex-direction: column;
@@ -473,11 +476,11 @@ body {
     gap: 30px;
     padding: 30px;
     border-radius: 10px;
-    border: 1px solid black;
     font-family: 'Inter', sans-serif;
 }
 
-.form__createTask h2, .form__editProfile h2{
+.form__createTask h2,
+.form__editProfile h2 {
     font-weight: 600;
     font-size: 1.25rem;
 }
@@ -492,6 +495,20 @@ body {
     height: 20px;
     border-radius: 50%;
     background-color: var(--error-1);
+}
+
+#form__btnCloseProfile {
+
+    background: none;
+    border: none;
+
+    font-weight: bolder;
+    font-size: 1rem;
+
+    padding: 5px;
+
+    color: var(--grey-3);
+
 }
 
 .close__buttonCreate {
@@ -669,7 +686,7 @@ input:focus {
     font-size: 20px;
     font-family: 'Nunito', sans-serif;
     font-weight: 600;
-    color: #ADB5BD;
+    color: var(--grey-3);
     width: max-content;
     height: max-content;
     background-color: white;
