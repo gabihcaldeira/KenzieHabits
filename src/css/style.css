@@ -443,7 +443,7 @@ body{
 
 }
 
-.form__title, .form__description, .form__category{
+.form__title, .form__description, .form__category, .form__userImg{
 
     padding: 9px 0px;
     gap: 10px;
@@ -458,7 +458,7 @@ body{
 
 }
 
-.form__input:focus, .form__title:focus, .form__description:focus, .form__category:focus {
+.form__input:focus, .form__title:focus, .form__description:focus, .form__category:focus, .form__userImg:focus{
 
     background-color: var(--grey-6);
 
@@ -466,14 +466,14 @@ body{
 
 }
 
-.form__input:hover, .form__title:hover, .form__description:hover{
+.form__input:hover, .form__title:hover, .form__description:hover, .form__userImg:hover{
 
     animation: pulse;
     animation-duration: 1s;
 
 }
 
-.form__button, .form__btnCreate{
+.form__button, .form__btnCreate, .form__btnEditUser{
 
     box-sizing: border-box;
 
@@ -507,7 +507,7 @@ body{
 }
 
 /* dashboard-modal-create-task--------------------------------------------------> */
-.modalTwo {
+.modalTwo, .modalThree{
     display: flex;
     
     position: fixed;
@@ -522,23 +522,23 @@ body{
 
 }
 
-.form__title, .form__description{
+.form__title, .form__description, .form__userImg{
     padding: 10;
     margin: 0;
 }
 
-.form__title--divisory, .form__description--divisory, .form__category--divisory{
+.form__title--divisory, .form__description--divisory, .form__category--divisory, .form__username--divisory, .form__userImg--divisory{
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 @media(max-width: 350px){
-    .form__title--divisory, .form__description--divisory, .form__category--divisory{
+    .form__title--divisory, .form__description--divisory, .form__category--divisory, .form__username--divisory, .form__userImg--divisory{
             width: 300px;
             margin-left: 10px;
     }
-    .form__btnCreate{
+    .form__btnCreate, .form__btnEditUser{
     box-sizing: border-box;
 
     align-items: center;
@@ -585,7 +585,7 @@ body{
     flex-direction:row-reverse;
 }
 
-.form__createTask{
+.form__createTask, .form__editProfile{
     display: flex;
     flex-direction: column;
     justify-content: center; 
@@ -594,7 +594,7 @@ body{
     font-family: 'Inter', sans-serif; 
 }
 
-.form__createTask h2 {
+.form__createTask h2, .form__editProfile h2{
     font-weight: 600;
     font-size: 1.25rem;
 }
