@@ -8,8 +8,6 @@ class DashboardActions {
         let response = await ApiRequest.readAllHabits()
         response = response.sort((a, b) => b.habit_id - a.habit_id)
 
-        // console.log(response)
-
         return response
     }
 
