@@ -29,13 +29,32 @@ class DashboardActions {
     static completeHabit() { //funciona!
         const checkboxes = document.querySelectorAll('input[type=checkbox]')
         checkboxes.forEach((checkbox) => {
-
             checkbox.addEventListener('change', async (event) => {
                 if (event.target.checked) {
-                    // fazer modal de verificar
-                    await ApiRequest.completeHabit(event.target.value)
-                    event.target.disabled = true;
-
+                    Swal.fire({
+                        title: 'Você quer completar o hábito?',
+                        text: "Você não poderá desfazer essa ação!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#E64445',
+                        cancelButtonColor: '#ADB5BD',
+                        confirmButtonText: 'Sim, completar!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Swal.fire(
+                                'Hábito Completo!',
+                                '',
+                                'success'
+                            ).then(() => event.target.disabled = true)
+                                .then(async () => await ApiRequest.completeHabit(event.target.value))
+                                .then(async () => {
+                                    const allHabits = await ApiRequest.readAllHabits()
+                                    Dashboard.showTableHabits(allHabits)
+                                })
+                        } else {
+                            event.target.checked = false
+                        }
+                    })
                 }
             });
         });
