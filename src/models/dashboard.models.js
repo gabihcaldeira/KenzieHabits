@@ -14,8 +14,8 @@ class Dashboard {
         tableHeader.className = "table__header"
         tableHeader.innerHTML = `<th class="table__data table__data--header">Status</th>
         <th class="table__data table__data--header">Título</th>
-        <th class="table__data table__data--header">Descrição</th>
-        <th class="table__data  table__data--header">Categoria</th>
+        <th class="table__data table__data--header --description">Descrição</th>
+        <th class="table__data  table__data--header --category">Categoria</th>
         <th class="table__data table__data--header">Editar</th>`
 
         table.append(tableHeader)
@@ -33,10 +33,10 @@ class Dashboard {
             tr.className = 'table__row';
 
             let checkbox = ``;
-            let habitTitle = `<td class="table__data">${habit_title}</td>`
+            let habitTitle = `<td class="table__data"><p>${habit_title}</p></td>`
             if (habit_status) {
                 checkbox = `<span class="checkBox"><input type="checkbox" name="status" disabled checked value="${habit_id}"><span class="checkmark"></span></span>`;
-                habitTitle = `<td class="table__data" style="text-decoration:line-through">${habit_title}</td>`
+                habitTitle = `<td class="table__data" style="text-decoration:line-through"><p>${habit_title}</p></td>`
             } else {
                 checkbox = `<span class="checkBox"><input type="checkbox" name="status" value="${habit_id}"><span class="checkmark"></span></span>`;
             }
@@ -44,8 +44,8 @@ class Dashboard {
             tr.innerHTML = `
                 <td class="table__data table__data--check">${checkbox}</td>
                 ${habitTitle}
-                <td class="table__data">${habit_description}</td>
-                <td class="table__data table__data--category"> <span>${habit_category}</span></td>
+                <td class="table__data --description"><p>${habit_description}</p></td>
+                <td class="table__data --category"> <span>${habit_category}</span></td>
                 <td class="table__data table__data--btn"><button id="${habit_id}" class="fa-solid fa-ellipsis"></button></td>
             `;
 

@@ -29,7 +29,7 @@ export default class Login {
                 icon: "success",
                 button: false,
                 timer: 1500
-            }).then(() => window.location.href = "/src/views/dashboard.views.html")
+            }).then(() => window.location.href = "/M2/Capstone/m2-capstone-kenzie-habits-gabihcaldeira/src/views/dashboard.views.html")
 
         }
         else if (responseLogin.message) {
@@ -50,6 +50,6 @@ export default class Login {
 
 Login.btnLogin.addEventListener('click', async (e) => {
     e.preventDefault()
-    await Login.requisitionLogin()    
+    await Login.requisitionLogin()
 })
 
