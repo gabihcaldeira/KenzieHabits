@@ -2,6 +2,8 @@ import Dashboard from "../models/dashboard.models.js";
 import DashboardActions from "../controller/dashboard.controller.js";
 import UserEditLogout from "../models/userEdit_Logout.models.js";
 import {CreateModal, CreateHabitModal} from "../models/create.models.js";
+import { EditProfileModal, CreateEditProfile } from "../models/userEdit_Logout.models.js";
+
 const allHabits = await DashboardActions.getAllHabits()
 Dashboard.showTableHabits(allHabits)
 DashboardActions.filterAllHabits()
@@ -22,7 +24,39 @@ DashboardActions.filterCompleteHabits()
 
 
 
-/**************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 UserEditLogout.btnLogout.addEventListener('click', () => UserEditLogout.logout())
 
@@ -47,3 +81,36 @@ CreateModal.btnCreate.addEventListener('click', async (event)=>{
     event.preventDefault();
     console.log(await CreateModal.createHabit())
 })
+
+
+
+
+
+EditProfileModal.editModalCreator()
+
+CreateEditProfile.botaoModalEdit.addEventListener('click', (event)=>{
+    event.preventDefault();
+    CreateEditProfile.modal.classList.remove('close__buttonCreate')
+})
+
+CreateEditProfile.botaoSair.addEventListener('click', (event)=>{
+event.preventDefault()
+CreateEditProfile.modal.classList.add('close__buttonCreate')
+})
+CreateEditProfile.btnCreate.addEventListener('click', async (event)=>{
+event.preventDefault();
+console.log(await CreateEditProfile.editProfile())
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
