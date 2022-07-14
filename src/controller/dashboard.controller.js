@@ -35,6 +35,7 @@ class DashboardActions {
         checkboxes.forEach((checkbox) => {
             checkbox.addEventListener('click', async (event) => {
                 const check = checkbox.previousElementSibling
+
                 if (!check.checked) {
                     Swal.fire({
                         title: 'Você quer completar o hábito?',
@@ -51,9 +52,12 @@ class DashboardActions {
                                 '',
                                 'success'
                             ).then(() => event.target.disabled = true)
-                                .then(async () => await ApiRequest.completeHabit(event.target.id))
                                 .then(async () => {
-                                    const allHabits = await Dashboard.getAllHabits()
+                                    const res = await ApiRequest.completeHabit(Number(event.target.id))
+                                    console.log(res)
+                                })
+                                .then(async () => {
+                                    const allHabits = await DashboardActions.getAllHabits()
                                     Dashboard.showTableHabits(allHabits)
                                 })
                         } else {
