@@ -54,7 +54,8 @@ export default class EditModal{
 }
 
 
-    console.log(await ApiRequest.readAllHabits())
+await ApiRequest.readAllHabits()
+
 
 
     const botaoModal = document.querySelectorAll('.modalAbrir')
@@ -62,6 +63,7 @@ export default class EditModal{
         el.addEventListener('click',async ()=>{
             id = el.id;
             
+
             modal.classList.remove('display-none')
             
             const usersData = await ApiRequest.readAllHabits()

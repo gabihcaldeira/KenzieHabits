@@ -1,9 +1,23 @@
+import ApiRequest from "../controller/Api.controller.js"
 
-
-export default class UserEditLogout{
+export class UserEditLogout{
+    
     static btnLogout = document.querySelector('#btn__leave--user')
     static popUpEdit = document.querySelector('#popup_edit')
     static popUpCreate = document.querySelector('#popup_create')
+
+
+    static userInfoHeader(){
+        const {usr_name,usr_image} = JSON.parse(localStorage.getItem('@habits_kenzie-userInfo'))
+        const userName = document.querySelector('.header__username')
+        const userPriImage = document.querySelector('.dropdown__button')
+        const userSubImage = document.querySelector('.header__userAvatar')
+        userName.innerText = `${usr_name}`       
+        userPriImage.src = `${usr_image}`
+        userSubImage.src = `${usr_image}`  
+
+        
+     }
 
     static logout(){       
       Swal.fire({
@@ -18,13 +32,98 @@ export default class UserEditLogout{
         if (result.isConfirmed) {
           Swal.fire(
             'Deslogado!',
-            'redirecionando para o Login.',
+            'Redirecionando para o Login.',
             'success'
-          ).then(() => window.location.href = '../../index.html')
+          ).then(() => {
+            localStorage.removeItem("@habits_kenzie-token")
+            localStorage.removeItem("@habits_kenzie-userInfo")
+            window.location.href = '../../index.html'
+          })
+          
         }
       })
           
-      }   
+    }   
    
 }
 
+
+
+
+
+
+//----------------------------------------------------------------------------------------------
+export class EditProfileModal{
+
+static editModalCreator(){
+  const modal = document.querySelector('body')
+  const createModalEdit = modal.insertAdjacentHTML('beforeend',
+  `
+  <div class = "modalThree close__buttonCreate">
+  <div class = "teste">
+  <form action="#" class = "form__editProfile">
+      <div class = "form__header--divisory">
+          <button class = form__btnClose>
+              <img src="/src/assets/img/closebtn.svg" alt="fechar">
+          </button>
+          <h2 class = form__headerTitle>Editar perfil</h2>
+      </div>
+      
+      <div class = "form__username--divisory">
+          <label for="username">Nome</label>
+          <input type="text" placeholder = "Digitar título"class = "form__title" id = "username">
+      </div>
+
+      <div class = "form__userImg--divisory">
+          <label for="userImg">Descrição</label>
+          <input placeholder = "Digite a URL da imagem" class = 'form__userImg' name="" id="userImg">
+      </div>
+
+      <button type = "submit" class = "form__btnEditUser">Concluir</button>
+  </form>
+</div>
+</div>
+`
+)
+return createModalEdit
+}
+}
+
+EditProfileModal.editModalCreator()
+
+export class CreateEditProfile{
+  static modal = document.querySelector('.modalThree')
+  static botaoSair = document.querySelector('.form__btnClose')
+  static btnCreate = document.querySelector('.form__btnEditUser')
+  static form = document.querySelector('.form__editProfile')
+  static formElements = [...this.form.elements]
+  static botaoModalEdit = document.querySelector('#btn__edituser--avatar')
+ 
+
+
+  static async editProfile(){
+    
+      const profileEdit = {
+        usr_name: this.formElements[1].value,
+        usr_image: this.formElements[2].value
+    }
+  const response = await ApiRequest.updateProfile(profileEdit)
+  if(response.usr_email){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Perfil editado com sucesso',
+      showConfirmButton: false,
+      timer: 1500
+    })   
+    .then(()=>this.modal.classList.add('close__buttonCreate'))
+    .then(()=> {
+      localStorage.removeItem("@habits_kenzie-userInfo")
+      localStorage.setItem("@habits_kenzie-userInfo",JSON.stringify(response))
+      UserEditLogout.userInfoHeader()
+    })
+  }
+  return response
+  }
+
+}

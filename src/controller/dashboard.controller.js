@@ -9,7 +9,7 @@ class DashboardActions {
         return response
     }
 
-    static filterAllHabits() {
+    static filterAllHabits() { //funciona!
         const button = document.getElementsByClassName('buttons__button')[0]
         button.addEventListener('click', async () => {
             const allHabits = await this.getAllHabits()
@@ -17,7 +17,7 @@ class DashboardActions {
         });
     }
 
-    static filterCompleteHabits() {
+    static filterCompleteHabits() { //funciona!
         const button = document.getElementsByClassName('buttons__button')[1]
         button.addEventListener('click', async () => {
             const allHabits = await this.getAllHabits()
@@ -26,24 +26,58 @@ class DashboardActions {
         });
     }
 
-    static loadMoreHabits() { }
-
-    static completeHabit() {
+    static completeHabit() { //funciona!
         const checkboxes = document.querySelectorAll('input[type=checkbox]')
         checkboxes.forEach((checkbox) => {
-            checkbox.addEventListener('change', (event) => {
+            checkbox.addEventListener('change', async (event) => {
                 if (event.target.checked) {
-                    ApiRequest.completeHabit(event.target.value)
-                } else {
-                    let data = { habit_status: false }
-                    ApiRequest.updateHabit(data, event.target.value)
+                    Swal.fire({
+                        title: 'Você quer completar o hábito?',
+                        text: "Você não poderá desfazer essa ação!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#E64445',
+                        cancelButtonColor: '#ADB5BD',
+                        confirmButtonText: 'Sim, completar!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Swal.fire(
+                                'Hábito Completo!',
+                                '',
+                                'success'
+                            ).then(() => event.target.disabled = true)
+                                .then(async () => await ApiRequest.completeHabit(event.target.value))
+                                .then(async () => {
+                                    const allHabits = await ApiRequest.readAllHabits()
+                                    Dashboard.showTableHabits(allHabits)
+                                })
+                        } else {
+                            event.target.checked = false
+                        }
+                    })
                 }
+            });
+        });
+    }
+
+    static getCreateHabitModal() {
+        const button = document.getElementsByClassName('buttons__button')[2]
+        button.addEventListener('click', () => {
+            //mostrar modal
+        })
+
+
+    }
+
+    static getEditHabitModal() {
+        const editButtons = document.querySelectorAll('.table__data--btn')
+        editButtons.forEach((button) => {
+            button.addEventListener('click', (event) => {
+                // event.target.id --> id do botão editar
             })
         })
 
     }
-
-    static getCreateHabitModal() { }
-
-    static getEditHabitModal() { }
 }
+
+export default DashboardActions

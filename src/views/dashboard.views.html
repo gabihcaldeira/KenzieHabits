@@ -5,75 +5,90 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <script src="https://kit.fontawesome.com/8aa664244c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/dashboard.style.css">     
-    <link rel="stylesheet" href= "/src/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8aa664244c.js" crossorigin="anonymous"></script>   
+    <link rel="stylesheet" href="../css/dashboard.style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
-   <title>Homepage</title>
-   
-</head>
-   
-<body>
-        <button id="1009" class="modalAbrir" >48</button>
-        <button id="987" class="modalAbrir" >47</button>
-        <button id="669" class="modalAbrir" >51</button>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     
-    <header class="header__user">
-        <section class="header__user--primary">
-            <h1 class="header__user--title">KenzieHabit</h1>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <title>Homepage</title>
+
+
+</head>
+
+<body>
+
+    
+
+
+
+
+    <header class="header">
+        <section class="header__primary">
+            <h1 class="header__title">KenzieHabit</h1>
+
 
             <div class="dropdown">
 
-                <figure class="header__container--avatarprimary">
-                    <img class="dropbtn header__user--avatarprimary" src="http://images4.fanpop.com/image/photos/19600000/Miss-Granger-hermione-granger-19628472-165-214.jpg" alt="avatarUser">
+                <figure class="dropdown__avatar">
+                    <img class="dropdown__button"
+                        src="https://thumbs.dreamstime.com/z/vetor-eps-do-%C3%ADcone-da-conta-cone-web-sinal-perfil-de-usu-rio-com-glyph-marca-verifica-o-elemento-autorizado-projeto-ilustra-liso-143969571.jpg"
+                        alt="avatarUser">
+
+
                 </figure>
 
-                <div class="dropdown-content">
-                <a id="btn__edituser--avatar" href="#">Editar perfil</a>
-                <a id="btn__leave--user" href="#">Sair do app</a>                
+                <div class="dropdown__content">
+                    <a id="btn__edituser--avatar" href="#">Editar perfil</a>
+                    <a id="btn__leave--user" href="#">Sair do app</a>
                 </div>
-
             </div>
 
         </section>
-        
-        <section class="header__user--secondary">
 
-            <div class="container__secondary">
-            <figure class="header__container--avatarsecondary">
-                <img class="header__user--avatarsecondary" src="http://images4.fanpop.com/image/photos/19600000/Miss-Granger-hermione-granger-19628472-165-214.jpg" alt="avatarUser">
-            </figure>
-            <h2 class="header__user--usernamesecondary"> Hermione Granger</h2>
+
+        <section class="header__secondary">
+
+            <div class="header__container">
+                <figure class="header__avatar">
+                    <img class="header__userAvatar"
+                        src="https://thumbs.dreamstime.com/z/vetor-eps-do-%C3%ADcone-da-conta-cone-web-sinal-perfil-de-usu-rio-com-glyph-marca-verifica-o-elemento-autorizado-projeto-ilustra-liso-143969571.jpg"
+                        alt="avatarUser">
+                </figure>
+                <h2 class="header__username"></h2>
+
             </div>
 
         </section>
     </header>
-   
+
+
+
 
     <main>
+        <div class="container__habits">
 
-        <section class="buttons">
+            <section class="buttons">
 
-            <h2 class="buttons__title">Tarefas</h2>
 
+                <h2 class="buttons__title">Tarefas</h2>
             <div>
                 <button class="buttons__button button--black">Todos</button>
                 <button class="buttons__button button--black">Concluídos</button>
-                <button class="buttons__button button--blue">Criar</button>
-    
-        <section class="table" id="table">
-
-            <div>
-                <p>Você ainda não tem nenhum hábito!!</p>
+                <button id="buttons__button--create" class="buttons__button button--blue">Criar</button>
             </div>
-            <!-- <table>
 
+            </section>
+
+            <section class="table" id="table">
+
+                <div>
+                    <p>Você ainda não tem nenhum hábito!!</p>
+                </div>
+                <!-- <table>
                 <th class="table__header">
                 <td class="table__data table__data--header">Status</td>
                 <td class="table__data table__data--header">Título</td>
@@ -92,18 +107,20 @@
             </table>
 
             <button class="table__button button--blue">Carregar Mais</button> -->
-        </section>
+            </section>
+        </div>
     </main>
-   
-        
 
-    <div class="modal modal--edit display-none">
+
+
+
+
+     <div class="modal modal--edit display-none">
         <div class="modal__inner">
             <div class="modal__inner--header">            
                 <h1 class="modal__inner--title">Editar Hábito</h1>
                 <button class="modal__inner--button">X</button>
             </div>
-
 
             <form class="modal__inner--form">
                 <div class="modal__inner__div">
@@ -139,16 +156,17 @@
         </div>
     </div>
     
-    <div id="popup_edit" class="display-none">
-        <img class="popup__sucess" src="../assets/img/edit_habit.jpg">
-    </div>
 
-    <div id="popup_create" class="display-none">
-        <img class="popup__sucess" src="../assets/img/habit_create.jpg">
-    </div>
 
-    <script type="module" src="../scripts/dashboard.scripts.js"></script>
+
+   
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>   
+    <script type="module" src="../scripts/dashboard.scripts.js"></script>           
+    
+    
+    
 
 </body>
+
 </html>
