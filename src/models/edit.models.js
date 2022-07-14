@@ -25,7 +25,7 @@ export default class EditModal{
 }
 
 
-    console.log(await ApiRequest.readAllHabits())
+console.log(await ApiRequest.readAllHabits())
 
 
 const botaoModal = document.querySelectorAll('.modalAbrir')

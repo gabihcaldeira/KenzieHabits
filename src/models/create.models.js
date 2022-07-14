@@ -1,6 +1,8 @@
 import ApiRequest from '../controller/Api.controller.js'
+import Dashboard from '../models/dashboard.models.js'
 
 export class CreateHabitModal{
+    
 static modalCreator(){
     const modal = document.querySelector('body')
     const createModal = modal.insertAdjacentHTML('beforeend',
@@ -63,8 +65,18 @@ export class CreateModal{
       }
     const response = await ApiRequest.createHabit(createHabit)
     if(response.habit_id){
-        swal("Sucesso", "Seu hábito foi criado", "success")
-        .then(()=>this.modal.classList.add('close__buttonCreate'))
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: "Seu hábito foi criado",
+            showConfirmButton: false,
+            timer: 1500
+          }).then(async ()=> {
+            const allHabits = await ApiRequest.readAllHabits() 
+            Dashboard.showTableHabits(allHabits) 
+            this.modal.classList.add('close__buttonCreate')           
+        })        
+        
     }
     return createHabit
     }
