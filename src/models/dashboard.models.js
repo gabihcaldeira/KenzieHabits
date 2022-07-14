@@ -69,7 +69,7 @@ class Dashboard {
                 DashboardActions.getEditHabitModal()
             });
         }
-        // DashboardActions.completeHabit()
+        DashboardActions.completeHabit()
         DashboardActions.getEditHabitModal();
     }
 }
