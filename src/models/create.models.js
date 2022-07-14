@@ -1,5 +1,7 @@
 import ApiRequest from '../controller/Api.controller.js'
-function modalCreator(){
+
+export class CreateHabitModal{
+static modalCreator(){
     const modal = document.querySelector('body')
     const createModal = modal.insertAdjacentHTML('beforeend',
     `
@@ -27,11 +29,11 @@ function modalCreator(){
             <label for="category">Categoria</label>
             <select name="" class = "form__category" id="category" >
                 <option selected>Selecionar Categoria</option>
-                <option value="saude">Saúde</option>
-                <option value="estudos">Estudos</option>
-                <option value="casa">Casa</option>
-                <option value="trabalho">Trabalho</option>
-                <option value="lazer">Lazer</option>
+                <option value="saude">💜 Saúde</option>  
+                <option value="estudos">🖊️ Estudos</option>
+                <option value="casa">🏠 Casa</option>
+                <option value="trabalho">🔨 Trabalho</option>
+                <option value="lazer">🏖️Lazer</option>
             </select>
         </div>
 
@@ -42,20 +44,13 @@ function modalCreator(){
 )
 return createModal
 }
+}
+CreateHabitModal.modalCreator()
 
-modalCreator()
-
-
-const botaoSair = document.querySelector('.form__btnClose')
-
-botaoSair.addEventListener('click', (event)=>{
-    event.preventDefault()
-    CreateModal.modal.classList.add('close__buttonCreate')
-})
-
-export default class CreateModal{
+export class CreateModal{
     static modal = document.querySelector('.modalTwo')
-
+    static botaoSair = document.querySelector('.form__btnClose')
+    static btnCreate = document.querySelector('.form__btnCreate')
     static form = document.querySelector('.form__createTask')
     static formElements = [...this.form.elements]
 
@@ -75,19 +70,3 @@ export default class CreateModal{
     }
 
 }
-
-
-
-const botaoModal = document.querySelector('.body__createButton')
-    const btnCreate = document.querySelector('.form__btnCreate')
-        botaoModal.addEventListener('click', (event)=>{
-            event.preventDefault();
-            CreateModal.modal.classList.remove('close__buttonCreate')
-            
-            
-        })
-
-        btnCreate.addEventListener('click', async (event)=>{
-            event.preventDefault();
-            console.log(await CreateModal.createHabit())
-        })

@@ -1,6 +1,14 @@
 export default class DeleteHabitModal {
 
-    static async create(id) {
+    static async create(id, clearSection) {
+
+        if(clearSection !== null) {
+
+            const sectionDelete = document.querySelector('.section__delete')
+            sectionDelete.remove()
+
+
+        }
 
         const botãoDeDelete = document.querySelector('.delete__button')
 
@@ -13,6 +21,8 @@ export default class DeleteHabitModal {
         sectionDelete.append(this.closeDiv(), this.warningDiv(), this.buttonsDiv())
 
         mainTeste.append(sectionDelete)
+
+        
 
     }
 
@@ -59,7 +69,7 @@ export default class DeleteHabitModal {
         return warningDiv
 
     }
-    
+
 
     static buttonsDiv() {
 
