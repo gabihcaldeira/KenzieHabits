@@ -2,7 +2,7 @@ import ApiRequest from '../controller/Api.controller.js'
 import Dashboard from './dashboard.models.js'
 export class ModalEditHabit{
 
-    static modalEditCreate() {
+    static modalEditCreate(id) {
         const body = document.querySelector('body')
         const editModal = body.insertAdjacentHTML('beforeend',
        `

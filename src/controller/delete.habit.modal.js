@@ -10,17 +10,15 @@ export default class DeleteHabitModal {
 
         }
 
-        const botãoDeDelete = document.querySelector('.delete__button')
-
-        const mainTeste = document.querySelector('.main__teste')
+        const sectionModal = document.querySelector('.modal--edit')
 
         const sectionDelete = document.createElement('section')
 
         sectionDelete.classList.add('section__delete')
 
-        sectionDelete.append(this.closeDiv(), this.warningDiv(), this.buttonsDiv())
+        sectionDelete.append(this.closeDiv(), this.warningDiv(), this.buttonsDiv(id))
 
-        mainTeste.append(sectionDelete)
+        sectionModal.append(sectionDelete)
 
         
 
@@ -71,7 +69,7 @@ export default class DeleteHabitModal {
     }
 
 
-    static buttonsDiv() {
+    static buttonsDiv(id) {
 
         const buttonsDiv = document.createElement('div')
 
@@ -85,6 +83,8 @@ export default class DeleteHabitModal {
 
         cancelButton.innerText = 'Cancelar'
         deleteButton.innerText = 'Sim, excluir este hábito'
+
+        deleteButton.id = id
 
         buttonsDiv.append(cancelButton, deleteButton)
 

@@ -6,38 +6,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/8aa664244c.js" crossorigin="anonymous"></script>   
+    <script src="https://kit.fontawesome.com/8aa664244c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/dashboard.style.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <title>Homepage</title>
 
+
+
+    <title>Homepage</title>
 
 </head>
 
 <body>
 
-    
-
-
-
-
     <header class="header">
+
         <section class="header__primary">
             <h1 class="header__title">KenzieHabit</h1>
-
 
             <div class="dropdown">
 
                 <figure class="dropdown__avatar">
+
                     <img class="dropdown__button"
                         src="https://thumbs.dreamstime.com/z/vetor-eps-do-%C3%ADcone-da-conta-cone-web-sinal-perfil-de-usu-rio-com-glyph-marca-verifica-o-elemento-autorizado-projeto-ilustra-liso-143969571.jpg"
                         alt="avatarUser">
-
 
                 </figure>
 
@@ -65,21 +59,28 @@
         </section>
     </header>
 
-
-
-
     <main>
         <div class="container__habits">
 
             <section class="buttons">
 
-
                 <h2 class="buttons__title">Tarefas</h2>
-            <div>
-                <button class="buttons__button button--black">Todos</button>
-                <button class="buttons__button button--black">Concluídos</button>
-                <button id="buttons__button--create" class="buttons__button button--blue">Criar</button>
-            </div>
+                <div>
+                    <form class="form__categories">
+                        <select name="categories" id="category">
+                            <option value="" selected disabled>Categorias</option>
+                            <option value="saude">💜 Saúde</option>
+                            <option value="estudos">🖊️ Estudos</option>
+                            <option value="casa">🏠 Casa</option>
+                            <option value="trabalho">🔨 Trabalho</option>
+                            <option value="lazer">🏖️Lazer</option>
+                        </select>
+                    </form>
+
+                    <button class="buttons__button button--black">Todos</button>
+                    <button class="buttons__button button--black">Concluídos</button>
+                    <button id="buttons__button--create" class="buttons__button button--blue">Criar</button>
+                </div>
 
             </section>
 
@@ -88,85 +89,14 @@
                 <div>
                     <p>Você ainda não tem nenhum hábito!!</p>
                 </div>
-                <!-- <table>
-                <th class="table__header">
-                <td class="table__data table__data--header">Status</td>
-                <td class="table__data table__data--header">Título</td>
-                <td class="table__data table__data--header">Descrição</td>
-                <td class="table__data  table__data--header">Categoria</td>
-                <td class="table__data table__data--header">Editar</td>
-                </th>
 
-                <tr>
-                    <td class="table__data"> <input type="checkbox" name="status" value=""></td>
-                    <td class="table__data"></td>
-                    <td class="table__data"></td>
-                    <td class="table__data"></td>
-                    <td class="table__data"></td>
-                </tr>
-            </table>
-
-            <button class="table__button button--blue">Carregar Mais</button> -->
             </section>
         </div>
     </main>
 
-
-
-
-<!-- 
-     <div class="modal modal--edit display-none">
-        <div class="modal__inner">
-            <div class="modal__inner--header">            
-                <h1 class="modal__inner--title">Editar Hábito</h1>
-                <button class="modal__inner--button">X</button>
-            </div>
-
-            <form class="modal__inner--form">
-                <div class="modal__inner__div">
-                    <label for="iinputTitle" class="modal__inner--label">Título</label>
-                    <input type="text" class="modal__inner--inputTitle" id="inputTitle">
-                </div>
-                <div class="modal__inner__div">
-                    <label for="inputDescription" class="modal__inner--label">Descrição</label>
-                    <input type="text" class="modal__inner--inputDescription" id="inputDescription">
-                </div>
-                
-                <div class="modal__inner__div">
-                    <label for="inputCategoria" class="modal__inner--label">Categoria</label>
-                    <select id="inputCategoria" name="inputCategoria">
-                        <option value="saude">💜 Saúde</option>  
-                        <option value="estudos">🖊️ Estudos</option>
-                        <option value="casa">🏠 Casa</option>
-                        <option value="trabalho">🔨 Trabalho</option>
-                        <option value="lazer">🏖️Lazer</option>
-                  </select>
-                </div>
-                
-                <div class="modal__inner__div--status">
-                    <label for="status" class="modal__inner--label">Status</label>
-                    <input type="checkbox" id="status" name="status">
-                </div>
-
-                <div class="modal__inner__div--buttons">
-                    <button class="deleteButton">Excluir</button>
-                    <button class="saveButton">Salvar alterações</button>
-                </div>
-            </form>
-        </div>
-    </div>
-     -->
-
-
-
-   
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>   
-    <script type="module" src="../scripts/dashboard.scripts.js"></script>           
-    
-    
-    
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../scripts/dashboard.scripts.js"></script>
 </body>
 
 </html>

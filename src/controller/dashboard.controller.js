@@ -60,49 +60,49 @@ class DashboardActions {
         });
     }
     static id = null;
-    static getCreateHabitModal() {
-         
-        const botaoModalEdit = document.querySelectorAll('.openModal')
-        botaoModalEdit.forEach(el => {
-            el.addEventListener('click', async ()=>{
-                this.id = el.id;
-                EditModal.modal.classList.remove('display-none')
-                
-                EditModal.formElements[5].addEventListener('click', async (event)=>{
-                event.preventDefault();
-                console.log(await EditModal.updateHabit(this.id))
-                    
-            })
-        
-        
-            const usersData = await ApiRequest.readAllHabits()
-            const userData = await usersData.filter((el)=>{
-                if(el.habit_id == this.id){
-                    return el
-                }
-            })
-            
-            console.log(userData)
-            EditModal.formElements[0].value = await userData[0].habit_title
-            EditModal.formElements[1].value = await userData[0].habit_description
-            EditModal.formElements[2].value = await userData[0].habit_category
-        })
-        })
-
-
-    }
 
     static getEditHabitModal() {
         const editButtons = document.querySelectorAll('.table__data--btn')
         editButtons.forEach((button) => {
-            button.addEventListener('click', (event) => {
-                // event.target.id --> id do botão editar
+            button.addEventListener('click', async (event) => {
+
+                this.id = event.target.id;
+                EditModal.modal.classList.remove('display-none')
+
+                EditModal.formElements[5].addEventListener('click', async (event) => {
+                    event.preventDefault();
+                    await EditModal.updateHabit(this.id)
+
+                })
+
+
+                const usersData = await ApiRequest.readAllHabits()
+                const userData = await usersData.filter((el) => {
+                    if (el.habit_id == this.id) {
+                        return el
+                    }
+                })
+                EditModal.formElements[0].value = await userData[0].habit_title
+                EditModal.formElements[1].value = await userData[0].habit_description
+                EditModal.formElements[2].value = await userData[0].habit_category
+
             })
         })
 
     }
 
+    static filterByCAtegory() {
+        const form = document.querySelector(".form__categories")
+
+        form.addEventListener('click', async (event) => {
+            event.preventDefault()
+            const selectedOption = form[0].value
+            const response = await ApiRequest.readByCategory(selectedOption)
+            Dashboard.showTableHabits(response)
+        })
+    }
 
 }
+
 
 export default DashboardActions
