@@ -1,11 +1,11 @@
 import ApiRequest from '../controller/Api.controller.js'
 import Dashboard from './dashboard.models.js'
-export class ModalEditHabit{
+export class ModalEditHabit {
 
     static modalEditCreate(id) {
         const body = document.querySelector('body')
         const editModal = body.insertAdjacentHTML('beforeend',
-       `
+            `
        <div class="modal modal--edit display-none">
        <div class="modal__inner">
            <div class="modal__inner--header">            
@@ -46,15 +46,15 @@ export class ModalEditHabit{
            </form>
        </div>
    </div>`
-   )
-   return editModal
-   }
+        )
+        return editModal
+    }
 }
 ModalEditHabit.modalEditCreate()
 
-export  class EditModal{
-    
-    
+export class EditModal {
+
+
 
     static formEdit = document.querySelector('.modal__inner--form')
     static formElements = [...this.formEdit.elements]
@@ -63,33 +63,33 @@ export  class EditModal{
     static botaoSair = document.querySelector('.modal__inner--button')
 
 
-   
 
 
 
 
-    static async updateHabit(id){
+
+    static async updateHabit(id) {
         console.log(this.formEdit)
-       const habits = {
-       habit_title: this.formElements[0].value,
-       habit_description:  this.formElements[1].value,
-       habit_category: this.formElements[2].value
-     }
-   const response = await ApiRequest.updateHabit(habits,id)
-   if(response.habit_id){
-    Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: "Seu hábito foi editado",
-        showConfirmButton: false,
-        timer: 1500
-      }).then(()=> EditModal.modal.classList.add('display-none')).then(async()=>{
-        const allHabits = await ApiRequest.readAllHabits() 
-        Dashboard.showTableHabits(allHabits) 
-      })
-   }
-   return habits
-   }
+        const habits = {
+            habit_title: this.formElements[0].value,
+            habit_description: this.formElements[1].value,
+            habit_category: this.formElements[2].value
+        }
+        const response = await ApiRequest.updateHabit(habits, id)
+        if (response.habit_id) {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: "Seu hábito foi editado",
+                showConfirmButton: false,
+                timer: 1500
+            }).then(() => EditModal.modal.classList.add('display-none')).then(async () => {
+                const allHabits = await ApiRequest.readAllHabits()
+                Dashboard.showTableHabits(allHabits)
+            })
+        }
+        return habits
+    }
 
 }
 
