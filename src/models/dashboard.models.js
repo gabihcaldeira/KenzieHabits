@@ -35,10 +35,10 @@ class Dashboard {
             let checkbox = ``;
             let habitTitle = `<td class="table__data"><p>${habit_title}</p></td>`
             if (habit_status) {
-                checkbox = `<span class="checkBox"><input type="checkbox" name="status" disabled checked value="${habit_id}"><span class="checkmark"></span></span>`;
+                checkbox = `<label class="new__checkbox"><input type="checkbox" name="status" disabled checked value="${habit_id}"><span class="checkmark fa-solid fa-check"></span></label>`;
                 habitTitle = `<td class="table__data" style="text-decoration:line-through"><p>${habit_title}</p></td>`
             } else {
-                checkbox = `<span class="checkBox"><input type="checkbox" name="status" value="${habit_id}"><span class="checkmark"></span></span>`;
+                checkbox = `<label class="new__checkbox"><input type="checkbox" name="status" value="${habit_id}"><span class="checkmark"></span></label>`;
             }
 
             tr.innerHTML = `
