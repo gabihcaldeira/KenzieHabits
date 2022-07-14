@@ -376,3 +376,53 @@ table,
 }
 
 /*--------- CHECKBOX -----------*/
+
+.new__checkbox {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    margin: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--grey-3);
+    border-radius: 4px;
+    padding-left: 1px;
+
+    /* margin: auto; */
+}
+
+.new__checkbox .checkmark:after {
+    width: 20px;
+    height: 20px;
+}
+
+.fa-solid.fa-check {
+    color: white;
+}
+
+
+.checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+.new__checkbox input[type="checkbox"]:checked~.checkmark {
+    background-color: var(--sucess);
+    border: 2px solid var(--sucess);
+}
+
+.new__checkbox input[type="checkbox"]:checked~.checkmark:after {
+    display: block;
+}
