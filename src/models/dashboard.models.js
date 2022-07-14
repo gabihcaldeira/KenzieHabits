@@ -5,6 +5,7 @@ class Dashboard {
     static tableLength = 10;
 
     static showTableHabits(habits){
+        
         const section = document.getElementById('table')
         section.innerHTML = ""
 
@@ -46,7 +47,8 @@ class Dashboard {
                 ${habitTitle}
                 <td class="table__data --description"><p>${habit_description}</p></td>
                 <td class="table__data --category"> <span>${habit_category}</span></td>
-                <td class="table__data table__data--btn"><button id="${habit_id}" class="fa-solid fa-ellipsis modalAbrir"></button></td>
+                <td class="table__data table__data--btn"><button id="${habit_id}" class="fa-solid fa-ellipsis openModal"></button></td>
+
             `;
 
 
@@ -60,13 +62,15 @@ class Dashboard {
             buttonMoreHabits.className = "table__button button--blue"
             buttonMoreHabits.innerText = "Carregar Mais"
             section.append(buttonMoreHabits)
-            buttonMoreHabits.addEventListener('click', () => {
+            buttonMoreHabits.addEventListener('click', async () => {
+                
                 this.tableLength += 10
                 this.showTableHabits(habits)
                 DashboardActions.getEditHabitModal()
             });
         }
         DashboardActions.completeHabit()
+        DashboardActions.getCreateHabitModal();
     }
 }
 

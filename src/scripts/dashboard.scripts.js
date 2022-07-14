@@ -1,13 +1,120 @@
 import Dashboard from "../models/dashboard.models.js";
+import ApiRequest from "../controller/Api.controller.js";
 import DashboardActions from "../controller/dashboard.controller.js";
 import {CreateHabitModal,CreateModal} from "../models/create.models.js";
 import {UserEditLogout,CreateEditProfile,EditProfileModal} from "../models/userEdit_Logout.models.js";
-import EditModal from "../models/edit.models.js";
+import {EditModal, ModalEditHabit} from "../models/edit.models.js";
 const allHabits = await DashboardActions.getAllHabits()
 Dashboard.showTableHabits(allHabits)
 DashboardActions.filterAllHabits()
 DashboardActions.filterCompleteHabits()
-EditModal.updateModal()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -102,4 +209,72 @@ console.log(CreateEditProfile.form)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let id = null;
+
+EditModal.botaoSair.addEventListener('click',()=>{EditModal.modal.classList.add('display-none')
+DashboardActions.id = null;})
+
+
+// botaoModalEdit.forEach(el => {
+//     el.addEventListener('click', async ()=>{
+//         id = el.id;
+//         console.log(id)
+//         EditModal.modal.classList.remove('display-none')
+        
+//         EditModal.formElements[5].addEventListener('click', async (event)=>{
+//         event.preventDefault();
+//         console.log(await EditModal.updateHabit(id))
+            
+//     })
+
+
+//     const usersData = await ApiRequest.readAllHabits()
+//     const userData = await usersData.filter((el)=>{
+//         if(el.habit_id == id){
+//             return el
+//         }
+//     })
+    
+//     console.log(userData)
+//     EditModal.formElements[0].value = await userData[0].habit_title
+//     EditModal.formElements[1].value = await userData[0].habit_description
+//     EditModal.formElements[2].value = await userData[0].habit_category
+// })
+// })
 

@@ -1,6 +1,6 @@
 import ApiRequest from "./Api.controller.js"
 import Dashboard from "../models/dashboard.models.js"
-
+import { EditModal, ModalEditHabit } from "../models/edit.models.js"
 
 class DashboardActions {
 
@@ -59,11 +59,34 @@ class DashboardActions {
             });
         });
     }
-
+    static id = null;
     static getCreateHabitModal() {
-        const button = document.getElementsByClassName('buttons__button')[2]
-        button.addEventListener('click', () => {
-            //mostrar modal
+         
+        const botaoModalEdit = document.querySelectorAll('.openModal')
+        botaoModalEdit.forEach(el => {
+            el.addEventListener('click', async ()=>{
+                this.id = el.id;
+                EditModal.modal.classList.remove('display-none')
+                
+                EditModal.formElements[5].addEventListener('click', async (event)=>{
+                event.preventDefault();
+                console.log(await EditModal.updateHabit(this.id))
+                    
+            })
+        
+        
+            const usersData = await ApiRequest.readAllHabits()
+            const userData = await usersData.filter((el)=>{
+                if(el.habit_id == this.id){
+                    return el
+                }
+            })
+            
+            console.log(userData)
+            EditModal.formElements[0].value = await userData[0].habit_title
+            EditModal.formElements[1].value = await userData[0].habit_description
+            EditModal.formElements[2].value = await userData[0].habit_category
+        })
         })
 
 
@@ -78,6 +101,8 @@ class DashboardActions {
         })
 
     }
+
+
 }
 
 export default DashboardActions

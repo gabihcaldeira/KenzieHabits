@@ -115,6 +115,8 @@
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 
+    border-radius: 4px;
+
 }
 
 .dropdown__content a {
@@ -276,6 +278,13 @@ button {
 .button--black {
     font-size: 1rem;
     font-weight: 500;
+}
+
+.button--black:focus {
+
+   color: var(--brand-1);
+   font-weight: 600;
+
 }
 
 .button--blue {
