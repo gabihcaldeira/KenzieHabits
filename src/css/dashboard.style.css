@@ -156,7 +156,6 @@
 main {
     width: 100%;
     margin: 0 auto 30px;
-
     background-color: var(--white);
     font-family: var(--font);
     box-sizing: border-box;
@@ -189,13 +188,16 @@ main {
 
 }
 
-.container_habits {
-    width: 60%;
+.container__habits {
+    width: 100%;
     background-color: var(--white);
     font-family: var(--font);
     box-sizing: border-box;
-    margin-bottom: 50px;
+    margin: 0 auto 50px;
 
+
+    animation: fadeInUp;
+    animation-duration: 1s;
 }
 
 .table {
@@ -232,6 +234,7 @@ button {
         justify-content: space-between;
         align-items: center;
         margin: 0;
+        width: 100%;
     }
 
     .buttons div {
@@ -246,6 +249,10 @@ button {
 }
 
 @media (min-width:750px) {
+    .buttons {
+        width: 100%;
+    }
+
     .buttons__title {
         padding: 0;
     }
