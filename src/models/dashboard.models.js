@@ -46,7 +46,7 @@ class Dashboard {
                 ${habitTitle}
                 <td class="table__data --description"><p>${habit_description}</p></td>
                 <td class="table__data --category"> <span>${habit_category}</span></td>
-                <td class="table__data table__data--btn"><button id="${habit_id}" class="fa-solid fa-ellipsis"></button></td>
+                <td class="table__data table__data--btn"><button id="${habit_id}" class="fa-solid fa-ellipsis openModal"></button></td>
             `;
 
 

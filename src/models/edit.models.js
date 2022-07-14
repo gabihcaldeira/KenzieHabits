@@ -25,10 +25,10 @@ export default class EditModal{
 }
 
 
-console.log(await ApiRequest.readAllHabits())
+await ApiRequest.readAllHabits()
 
 
-const botaoModal = document.querySelectorAll('.modalAbrir')
+const botaoModal = document.querySelectorAll('.openModal')
 
 botaoModal.forEach(el => {
         el.addEventListener('click', ()=>{
