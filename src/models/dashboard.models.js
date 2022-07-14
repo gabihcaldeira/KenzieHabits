@@ -4,8 +4,8 @@ import DashboardActions from "../controller/dashboard.controller.js";
 class Dashboard {
     static tableLength = 10;
 
-    static showTableHabits(habits){
-        
+    static showTableHabits(habits) {
+
         const section = document.getElementById('table')
         section.innerHTML = ""
 
@@ -31,7 +31,7 @@ class Dashboard {
 
 
             const tr = document.createElement('tr')
-            tr.className = 'table__row';
+            tr.classList.add('table__row')
 
             let checkbox = ``;
             let habitTitle = `<td class="table__data"><p>${habit_title}</p></td>`
@@ -63,7 +63,7 @@ class Dashboard {
             buttonMoreHabits.innerText = "Carregar Mais"
             section.append(buttonMoreHabits)
             buttonMoreHabits.addEventListener('click', async () => {
-                
+
                 this.tableLength += 10
                 this.showTableHabits(habits)
                 DashboardActions.getEditHabitModal()
