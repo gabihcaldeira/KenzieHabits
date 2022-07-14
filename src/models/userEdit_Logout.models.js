@@ -8,9 +8,9 @@ export default class UserEditLogout{
 
     static userInfoHeader(){
         const {usr_name,usr_image} = JSON.parse(localStorage.getItem('@habits_kenzie-userInfo'))
-        const userName = document.querySelector('.header__user--usernamesecondary')
-        const userPriImage = document.querySelector('.header__user--avatarprimary')
-        const userSubImage = document.querySelector('.header__user--avatarsecondary')
+        const userName = document.querySelector('.header__username')
+        const userPriImage = document.querySelector('.dropdown__button')
+        const userSubImage = document.querySelector('.header__userAvatar')
         userName.innerText = `${usr_name}`       
         userPriImage.src = `${usr_image}`
         userSubImage.src = `${usr_image}`  

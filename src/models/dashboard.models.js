@@ -1,10 +1,10 @@
-import ApiRequest from "../controller/Api.controller.js";
+
 import DashboardActions from "../controller/dashboard.controller.js";
 
 class Dashboard {
     static tableLength = 10;
 
-    static showTableHabits(habits) {
+    static showTableHabits(habits){
         const section = document.getElementById('table')
         section.innerHTML = ""
 
