@@ -1,6 +1,6 @@
 import ApiRequest from "../controller/Api.controller.js"
 
-export default class UserEditLogout{
+export class UserEditLogout{
     
     static btnLogout = document.querySelector('#btn__leave--user')
     static popUpEdit = document.querySelector('#popup_edit')
@@ -32,7 +32,7 @@ export default class UserEditLogout{
         if (result.isConfirmed) {
           Swal.fire(
             'Deslogado!',
-            'redirecionando para o Login.',
+            'Redirecionando para o Login.',
             'success'
           ).then(() => {
             localStorage.removeItem("@habits_kenzie-token")
@@ -54,6 +54,7 @@ export default class UserEditLogout{
 
 //----------------------------------------------------------------------------------------------
 export class EditProfileModal{
+
 static editModalCreator(){
   const modal = document.querySelector('body')
   const createModalEdit = modal.insertAdjacentHTML('beforeend',
@@ -88,18 +89,20 @@ return createModalEdit
 }
 }
 
+EditProfileModal.editModalCreator()
 
 export class CreateEditProfile{
   static modal = document.querySelector('.modalThree')
   static botaoSair = document.querySelector('.form__btnClose')
   static btnCreate = document.querySelector('.form__btnEditUser')
   static form = document.querySelector('.form__editProfile')
-  static botaoModalEdit = document.querySelector('#btn__edituser--avatar')
   static formElements = [...this.form.elements]
+  static botaoModalEdit = document.querySelector('#btn__edituser--avatar')
+ 
 
 
-  static async editProfile(data){
-    // this.formElements[2].value,
+  static async editProfile(){
+    
       const profileEdit = {
         usr_name: this.formElements[1].value,
         usr_image: this.formElements[2].value
@@ -112,9 +115,13 @@ export class CreateEditProfile{
       title: 'Perfil editado com sucesso',
       showConfirmButton: false,
       timer: 1500
-    })
-    
+    })   
     .then(()=>this.modal.classList.add('close__buttonCreate'))
+    .then(()=> {
+      localStorage.removeItem("@habits_kenzie-userInfo")
+      localStorage.setItem("@habits_kenzie-userInfo",JSON.stringify(response))
+      UserEditLogout.userInfoHeader()
+    })
   }
   return response
   }

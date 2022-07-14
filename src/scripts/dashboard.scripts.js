@@ -1,8 +1,7 @@
 import Dashboard from "../models/dashboard.models.js";
 import DashboardActions from "../controller/dashboard.controller.js";
-import UserEditLogout from "../models/userEdit_Logout.models.js";
-import {CreateModal, CreateHabitModal} from "../models/create.models.js";
-import { EditProfileModal, CreateEditProfile } from "../models/userEdit_Logout.models.js";
+import {CreateHabitModal,CreateModal} from "../models/create.models.js";
+import {UserEditLogout,CreateEditProfile,EditProfileModal} from "../models/userEdit_Logout.models.js";
 
 const allHabits = await DashboardActions.getAllHabits()
 Dashboard.showTableHabits(allHabits)
@@ -48,20 +47,11 @@ DashboardActions.filterCompleteHabits()
 
 
 
-
-
-
-
-
-
-
-
-
-
 UserEditLogout.btnLogout.addEventListener('click', () => UserEditLogout.logout())
 
 UserEditLogout.userInfoHeader()
 
+EditProfileModal.editModalCreator()
 CreateHabitModal.modalCreator()
 
 const botaoModal = document.querySelector('#buttons__button--create')
@@ -86,7 +76,6 @@ CreateModal.btnCreate.addEventListener('click', async (event)=>{
 
 
 
-EditProfileModal.editModalCreator()
 
 CreateEditProfile.botaoModalEdit.addEventListener('click', (event)=>{
     event.preventDefault();
@@ -109,7 +98,7 @@ console.log(await CreateEditProfile.editProfile())
 
 
 
-
+console.log(CreateEditProfile.form)
 
 
 
