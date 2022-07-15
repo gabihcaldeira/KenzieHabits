@@ -458,6 +458,9 @@ body {
     justify-content: center;
     background-color: white;
     border-radius: 15px;
+
+    animation: zoomIn;
+    animation-duration: 1s;
 }
 
 .form__header--divisory {
@@ -485,29 +488,26 @@ body {
     font-size: 1.25rem;
 }
 
+.close__button,
+#form__btnCloseProfile,
 .form__btnClose {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    padding: 0;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: var(--error-1);
+    font-size: 20px;
+    font-family: var(--font);
+    font-weight: 600;
+    color: var(--grey-3);
+    width: max-content;
+    height: max-content;
+    background-color: white;
+    border: none;
+    margin-right: 20px;
+    margin-top: 25px;
 }
 
-#form__btnCloseProfile {
+.close__button:hover,
+#form__btnCloseProfile:hover,
+.form__btnClose:hover {
 
-    background: none;
-    border: none;
-
-    font-weight: bolder;
-    font-size: 1rem;
-
-    padding: 5px;
-
-    color: var(--grey-3);
+    color: var(--black);
 
 }
 
@@ -556,18 +556,6 @@ body {
     font-weight: 600;
 
     color: var(--grey-1);
-
-}
-
-.close__button {
-
-    border: none;
-    background: none;
-
-    font-size: 1.25rem;
-    font-weight: 0;
-
-    color: var(--grey-3);
 
 }
 
@@ -660,7 +648,6 @@ input:focus {
     align-items: center;
     justify-content: center;
 
-
 }
 
 
@@ -684,7 +671,7 @@ input:focus {
 
 .modal__inner--button {
     font-size: 20px;
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--font);
     font-weight: 600;
     color: var(--grey-3);
     width: max-content;
@@ -728,10 +715,9 @@ input:focus {
 
 .modal__inner__div--status {
     margin-top: 5px;
-    width: 85%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
-
 }
 
 .modal__inner--label {

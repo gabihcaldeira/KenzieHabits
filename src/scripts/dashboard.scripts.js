@@ -37,7 +37,7 @@ CreateModal.botaoSair.addEventListener('click', (event) => {
 })
 CreateModal.btnCreate.addEventListener('click', async (event) => {
     event.preventDefault();
-    console.log(await CreateModal.createHabit())
+    await CreateModal.createHabit()
 })
 
 
@@ -49,8 +49,6 @@ CreateEditProfile.botaoModalEdit.addEventListener('click', (event) => {
     CreateEditProfile.modal.classList.remove('close__buttonCreate')
 })
 
-// console.log(CreateEditProfile.botaoSair)
-
 CreateEditProfile.botaoSair.addEventListener('click', (event) => {
 
 
@@ -60,7 +58,7 @@ CreateEditProfile.botaoSair.addEventListener('click', (event) => {
 })
 CreateEditProfile.btnCreate.addEventListener('click', async (event) => {
     event.preventDefault();
-    console.log(await CreateEditProfile.editProfile())
+    await CreateEditProfile.editProfile()
 })
 
 
@@ -109,12 +107,15 @@ document.addEventListener('click', (e) => {
 
     if (classList.contains('close__button') || classList.contains('button__cancel')) {
 
-        const modalInner = document.querySelector('.modal__inner')
+        const modalEdit = document.querySelector('.modal--edit')
 
-        modalInner.classList.remove('display-none')
+        modalEdit.classList.remove('display-none')
 
         const sectionDelete = document.querySelector('.section__delete')
         sectionDelete.remove()
+
+        const modalInner = document.querySelector('.modal__inner')
+        modalInner.classList.remove('display-none')
 
     }
 
@@ -133,7 +134,11 @@ document.addEventListener('click', async (e) => {
         const allHabits = await ApiRequest.readAllHabits()
         Dashboard.showTableHabits(allHabits)
 
-        console.log(response)
+        const sectionDelete = document.querySelector('.section__delete')
+        sectionDelete.remove()
+
+        const modalInner = document.querySelector('.modal__inner')
+        modalInner.classList.remove('display-none')
 
     }
 

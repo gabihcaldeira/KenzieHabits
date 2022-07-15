@@ -2,7 +2,11 @@ import ApiRequest from '../controller/Api.controller.js'
 import Dashboard from './dashboard.models.js'
 export class ModalEditHabit {
 
-    static modalEditCreate(id) {
+
+
+
+    static modalEditCreate() {
+
         const body = document.querySelector('body')
         const editModal = body.insertAdjacentHTML('beforeend',
             `
@@ -36,7 +40,7 @@ export class ModalEditHabit {
                
                <div class="modal__inner__div--status">
                    <label for="status" class="modal__inner--label">Status</label>
-                   <label class="new__checkbox"><input type="checkbox" id="status" name="status"><span class="checkmark"></span></label>
+                   <label class="new__checkbox"><input type="checkbox" id="status" name="status"><span class="checkmark" id=""></span></label>
                    
                </div>
    
@@ -51,7 +55,26 @@ export class ModalEditHabit {
         return editModal
     }
 }
+
+/* document.addEventListener('click', async (e) => {
+
+    if (e.target.classList.contains('openModal')) {
+
+        e.target.id
+
+        console.log(e.target)
+
+    }
+
+}) */
+
 ModalEditHabit.modalEditCreate()
+
+
+
+
+
+
 
 export class EditModal {
 
@@ -70,7 +93,6 @@ export class EditModal {
 
 
     static async updateHabit(id) {
-        console.log(this.formEdit)
         const habits = {
             habit_title: this.formElements[0].value,
             habit_description: this.formElements[1].value,
