@@ -46,6 +46,13 @@ body {
 
 }
 
+button:hover {
+
+    animation: pulse;
+    animation-duration: 1s;
+
+}
+
 @media (min-width: 1024px) {
 
     .body {

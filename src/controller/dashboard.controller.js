@@ -54,7 +54,6 @@ class DashboardActions {
                             ).then(() => event.target.disabled = true)
                                 .then(async () => {
                                     const res = await ApiRequest.completeHabit(Number(event.target.id))
-                                    console.log(res)
                                 })
                                 .then(async () => {
                                     const allHabits = await DashboardActions.getAllHabits()
@@ -96,10 +95,6 @@ class DashboardActions {
                 EditModal.formElements[2].value = await userData[0].habit_category
                 EditModal.formElements[3].value = await userData[0].habit_id
                 EditModal.formElements[3].nextElementSibling.id = await userData[0].habit_id
-                
-
-                console.log(EditModal.formElements[3].nextElementSibling)
-
             })
         })
 

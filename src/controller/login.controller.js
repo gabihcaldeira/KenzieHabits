@@ -17,8 +17,6 @@ export default class Login {
 
         const responseLogin = await ApiRequest.userLogin(userData)
 
-        console.log(responseLogin)
-
         if (responseLogin.token) {
 
             localStorage.setItem("@habits_kenzie-token", JSON.stringify(responseLogin.token))
