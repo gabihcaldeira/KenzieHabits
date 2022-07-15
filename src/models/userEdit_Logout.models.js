@@ -27,7 +27,13 @@ export class UserEditLogout {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Sim, deslogar !'
+      confirmButtonText: 'Sim, deslogar !',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
@@ -113,7 +119,13 @@ export class CreateEditProfile {
         icon: 'success',
         title: 'Perfil editado com sucesso',
         showConfirmButton: false,
-        timer: 1500
+        timer: 1500,
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+      },
       })
         .then(() => this.modal.classList.add('close__buttonCreate'))
         .then(() => {

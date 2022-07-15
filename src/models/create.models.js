@@ -71,7 +71,13 @@ export class CreateModal {
                 icon: 'success',
                 title: "Seu hábito foi criado",
                 showConfirmButton: false,
-                timer: 1500
+                timer: 1500,
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                },
             }).then(async () => {
                 let allHabits = await DashboardActions.getAllHabits()
                 Dashboard.showTableHabits(allHabits)

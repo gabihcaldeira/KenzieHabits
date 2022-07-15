@@ -91,7 +91,13 @@ export class EditModal {
                 icon: 'success',
                 title: "Seu hábito foi editado",
                 showConfirmButton: false,
-                timer: 1500
+                timer: 1500,
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                },
             }).then(() => EditModal.modal.classList.add('display-none')).then(async () => {
                 const allHabits = await ApiRequest.readAllHabits()
                 Dashboard.showTableHabits(allHabits)
