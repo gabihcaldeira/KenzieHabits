@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8aa664244c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/dashboard.style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+
+    <title>Homepage</title>
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <section class="header__primary">
+            <h1 class="header__title">KenzieHabit</h1>
+
+            <div class="dropdown">
+
+                <figure class="dropdown__avatar">
+
+                    <img class="dropdown__button"
+                        src="https://thumbs.dreamstime.com/z/vetor-eps-do-%C3%ADcone-da-conta-cone-web-sinal-perfil-de-usu-rio-com-glyph-marca-verifica-o-elemento-autorizado-projeto-ilustra-liso-143969571.jpg"
+                        alt="avatarUser">
+
+                </figure>
+
+                <div class="dropdown__content">
+                    <a id="btn__edituser--avatar" href="#">Editar perfil</a>
+                    <a id="btn__leave--user" href="#">Sair do app</a>
+                </div>
+            </div>
+
+        </section>
+
+
+        <section class="header__secondary">
+
+            <div class="header__container">
+                <figure class="header__avatar">
+                    <img class="header__userAvatar"
+                        src="https://thumbs.dreamstime.com/z/vetor-eps-do-%C3%ADcone-da-conta-cone-web-sinal-perfil-de-usu-rio-com-glyph-marca-verifica-o-elemento-autorizado-projeto-ilustra-liso-143969571.jpg"
+                        alt="avatarUser">
+                </figure>
+                <h2 class="header__username"></h2>
+
+            </div>
+
+        </section>
+    </header>
+
+    <main>
+        <div class="container__habits">
+
+            <section class="buttons">
+
+                <h2 class="buttons__title">Tarefas</h2>
+                <div>
+                    <form class="form__categories">
+                        <select name="categories" id="category">
+                            <option value="" selected disabled>Categorias</option>
+                            <option value="saude">💜 Saúde</option>
+                            <option value="estudos">🖊️ Estudos</option>
+                            <option value="casa">🏠 Casa</option>
+                            <option value="trabalho">🔨 Trabalho</option>
+                            <option value="lazer">🏖️Lazer</option>
+                        </select>
+                    </form>
+
+                    <button class="buttons__button button--black">Todos</button>
+                    <button class="buttons__button button--black">Concluídos</button>
+                    <button id="buttons__button--create" class="buttons__button button--blue">Criar</button>
+                </div>
+
+            </section>
+
+            <section class="table" id="table">
+
+                <div>
+                    <p>Você ainda não tem nenhum hábito!!</p>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../scripts/dashboard.scripts.js"></script>
+</body>
+
+</html>
