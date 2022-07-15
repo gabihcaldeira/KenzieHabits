@@ -94,6 +94,11 @@ class DashboardActions {
                 EditModal.formElements[0].value = await userData[0].habit_title
                 EditModal.formElements[1].value = await userData[0].habit_description
                 EditModal.formElements[2].value = await userData[0].habit_category
+                EditModal.formElements[3].value = await userData[0].habit_id
+                EditModal.formElements[3].nextElementSibling.id = await userData[0].habit_id
+                
+
+                console.log(EditModal.formElements[3].nextElementSibling)
 
             })
         })

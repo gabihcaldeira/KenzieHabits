@@ -142,6 +142,14 @@ document.addEventListener('click', async (e) => {
 
     }
 
-
-
 })
+
+/* document.addEventListener('click', async (e) => {
+
+        if (e.target.classList.contains('openModal')) {
+    
+            ModalEditHabit.getId = e.target.id
+    
+        }
+    
+    }) */
