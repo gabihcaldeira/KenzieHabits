@@ -1,18 +1,19 @@
 import ApiRequest from '../controller/Api.controller.js'
 import Dashboard from '../models/dashboard.models.js'
+import DashboardActions from '../controller/dashboard.controller.js'
 
-export class CreateHabitModal{
-    
-static modalCreator(){
-    const modal = document.querySelector('body')
-    const createModal = modal.insertAdjacentHTML('beforeend',
-    `
+export class CreateHabitModal {
+
+    static modalCreator() {
+        const modal = document.querySelector('body')
+        const createModal = modal.insertAdjacentHTML('beforeend',
+            `
     <div class = 'modalTwo close__buttonCreate'>
-    <div class = "teste">
+    <div class = "modalOne">
     <form action="#" class = "form__createTask">
         <div class = "form__header--divisory">
             <button class = form__btnClose>
-                <img src="/src/assets/img/closebtn.svg" alt="fechar">
+                X
             </button>
             <h2 class = form__headerTitle>Criar Hábito</h2>
         </div>
@@ -43,13 +44,13 @@ static modalCreator(){
     </form>
 </div>
 </div>`
-)
-return createModal
-}
+        )
+        return createModal
+    }
 }
 CreateHabitModal.modalCreator()
 
-export class CreateModal{
+export class CreateModal {
     static modal = document.querySelector('.modalTwo')
     static botaoSair = document.querySelector('.form__btnClose')
     static btnCreate = document.querySelector('.form__btnCreate')
@@ -57,28 +58,28 @@ export class CreateModal{
     static formElements = [...this.form.elements]
 
 
-    static async createHabit(){
+    static async createHabit() {
         const createHabit = {
-        habit_title: this.formElements[1].value,
-        habit_description:  this.formElements[2].value,
-        habit_category: this.formElements[3].value
-      }
-    const response = await ApiRequest.createHabit(createHabit)
-    if(response.habit_id){
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: "Seu hábito foi criado",
-            showConfirmButton: false,
-            timer: 1500
-          }).then(async ()=> {
-            const allHabits = await ApiRequest.readAllHabits() 
-            Dashboard.showTableHabits(allHabits) 
-            this.modal.classList.add('close__buttonCreate')           
-        })        
-        
-    }
-    return createHabit
+            habit_title: this.formElements[1].value,
+            habit_description: this.formElements[2].value,
+            habit_category: this.formElements[3].value
+        }
+        const response = await ApiRequest.createHabit(createHabit)
+        if (response.habit_id) {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: "Seu hábito foi criado",
+                showConfirmButton: false,
+                timer: 1500
+            }).then(async () => {
+                let allHabits = await DashboardActions.getAllHabits()
+                Dashboard.showTableHabits(allHabits)
+                this.modal.classList.add('close__buttonCreate')
+            })
+
+        }
+        return createHabit
     }
 
 }

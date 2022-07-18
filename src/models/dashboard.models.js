@@ -4,7 +4,8 @@ import DashboardActions from "../controller/dashboard.controller.js";
 class Dashboard {
     static tableLength = 10;
 
-    static showTableHabits(habits){
+    static showTableHabits(habits) {
+
         const section = document.getElementById('table')
         section.innerHTML = ""
 
@@ -30,15 +31,15 @@ class Dashboard {
 
 
             const tr = document.createElement('tr')
-            tr.className = 'table__row';
+            tr.classList.add('table__row')
 
             let checkbox = ``;
             let habitTitle = `<td class="table__data"><p>${habit_title}</p></td>`
             if (habit_status) {
-                checkbox = `<label class="new__checkbox"><input type="checkbox" name="status" disabled checked value="${habit_id}"><span class="checkmark fa-solid fa-check"></span></label>`;
+                checkbox = `<label class="new__checkbox"><input type="checkbox" name="status" disabled checked value="${habit_id}"><span id="${habit_id}" class="checkmark fa-solid fa-check"></span></label>`;
                 habitTitle = `<td class="table__data" style="text-decoration:line-through"><p>${habit_title}</p></td>`
             } else {
-                checkbox = `<label class="new__checkbox"><input type="checkbox" name="status" value="${habit_id}"><span class="checkmark"></span></label>`;
+                checkbox = `<label class="new__checkbox"><input type="checkbox" name="status" value="${habit_id}"><span id="${habit_id}" class="checkmark"></span></label>`;
             }
 
             tr.innerHTML = `
@@ -46,7 +47,8 @@ class Dashboard {
                 ${habitTitle}
                 <td class="table__data --description"><p>${habit_description}</p></td>
                 <td class="table__data --category"> <span>${habit_category}</span></td>
-                <td class="table__data table__data--btn"><button id="${habit_id}" class="fa-solid fa-ellipsis"></button></td>
+                <td class="table__data table__data--btn"><button id="${habit_id}" class="fa-solid fa-ellipsis openModal"></button></td>
+
             `;
 
 
@@ -60,13 +62,15 @@ class Dashboard {
             buttonMoreHabits.className = "table__button button--blue"
             buttonMoreHabits.innerText = "Carregar Mais"
             section.append(buttonMoreHabits)
-            buttonMoreHabits.addEventListener('click', () => {
+            buttonMoreHabits.addEventListener('click', async () => {
+
                 this.tableLength += 10
                 this.showTableHabits(habits)
                 DashboardActions.getEditHabitModal()
             });
         }
         DashboardActions.completeHabit()
+        DashboardActions.getEditHabitModal();
     }
 }
 

@@ -46,6 +46,13 @@ body {
 
 }
 
+button:hover {
+
+    animation: pulse;
+    animation-duration: 1s;
+
+}
+
 @media (min-width: 1024px) {
 
     .body {
@@ -268,6 +275,7 @@ body {
 
 .form__input,
 .form__title,
+.form__userImg,
 .form__description,
 .form__category {
 
@@ -310,7 +318,8 @@ body {
 .form__input:focus,
 .form__title:focus,
 .form__description:focus,
-.form__category:focus, .form__userImg:focus{
+.form__category:focus,
+.form__userImg:focus {
 
     background-color: var(--grey-6);
 
@@ -320,7 +329,8 @@ body {
 
 .form__input:hover,
 .form__title:hover,
-.form__description:hover, .form__userImg:hover {
+.form__description:hover,
+.form__userImg:hover {
 
 
     animation: pulse;
@@ -366,7 +376,6 @@ body {
 }
 
 /* dashboard-modal-create-task--------------------------------------------------> */
-.teste,
 .modalTwo,
 .modalThree {
 
@@ -386,8 +395,8 @@ body {
 
 
 .form__title,
-.form__description, 
-.form__userImg{
+.form__description,
+.form__userImg {
 
     padding: 10;
     margin: 0;
@@ -398,7 +407,7 @@ body {
 .form__description--divisory,
 .form__category--divisory,
 .form__username--divisory,
-.form__userImg--divisory{
+.form__userImg--divisory {
 
     display: flex;
     flex-direction: column;
@@ -410,7 +419,8 @@ body {
 
     .form__title--divisory,
     .form__description--divisory,
-    .form__category--divisory, .form__username--divisory,
+    .form__category--divisory,
+    .form__username--divisory,
     .form__userImg--divisory {
         width: 300px;
         margin-left: 10px;
@@ -449,12 +459,15 @@ body {
 
 
 
-.teste {
+.modalOne {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: white;
     border-radius: 15px;
+
+    animation: zoomIn;
+    animation-duration: 1s;
 }
 
 .form__header--divisory {
@@ -465,7 +478,7 @@ body {
 
 
 .form__createTask,
-.form__editProfile{
+.form__editProfile {
 
     display: flex;
     flex-direction: column;
@@ -473,25 +486,36 @@ body {
     gap: 30px;
     padding: 30px;
     border-radius: 10px;
-    border: 1px solid black;
     font-family: 'Inter', sans-serif;
 }
 
-.form__createTask h2, .form__editProfile h2{
+.form__createTask h2,
+.form__editProfile h2 {
     font-weight: 600;
     font-size: 1.25rem;
 }
 
+.close__button,
+#form__btnCloseProfile,
 .form__btnClose {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    padding: 0;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: var(--error-1);
+    font-size: 20px;
+    font-family: var(--font);
+    font-weight: 600;
+    color: var(--grey-3);
+    width: max-content;
+    height: max-content;
+    background-color: white;
+    border: none;
+    margin-right: 20px;
+    margin-top: 25px;
+}
+
+.close__button:hover,
+#form__btnCloseProfile:hover,
+.form__btnClose:hover {
+
+    color: var(--black);
+
 }
 
 .close__buttonCreate {
@@ -539,18 +563,6 @@ body {
     font-weight: 600;
 
     color: var(--grey-1);
-
-}
-
-.close__button {
-
-    border: none;
-    background: none;
-
-    font-size: 1.25rem;
-    font-weight: 0;
-
-    color: var(--grey-3);
 
 }
 
@@ -643,7 +655,6 @@ input:focus {
     align-items: center;
     justify-content: center;
 
-
 }
 
 
@@ -667,9 +678,9 @@ input:focus {
 
 .modal__inner--button {
     font-size: 20px;
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--font);
     font-weight: 600;
-    color: #ADB5BD;
+    color: var(--grey-3);
     width: max-content;
     height: max-content;
     background-color: white;
@@ -711,10 +722,9 @@ input:focus {
 
 .modal__inner__div--status {
     margin-top: 5px;
-    width: 85%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
-
 }
 
 .modal__inner--label {

@@ -17,8 +17,6 @@ export default class Login {
 
         const responseLogin = await ApiRequest.userLogin(userData)
 
-        console.log(responseLogin)
-
         if (responseLogin.token) {
 
             localStorage.setItem("@habits_kenzie-token", JSON.stringify(responseLogin.token))
@@ -29,7 +27,7 @@ export default class Login {
                 icon: "success",
                 button: false,
                 timer: 1500
-            }).then(() => window.location.href = "/M2/Capstone/m2-capstone-kenzie-habits-gabihcaldeira/src/views/dashboard.views.html")
+            }).then(() => window.location.href = "/src/views/dashboard.views.html")
 
         }
         else if (responseLogin.message) {
