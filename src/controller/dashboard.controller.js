@@ -95,6 +95,12 @@ class DashboardActions {
                 EditModal.formElements[2].value = await userData[0].habit_category
                 EditModal.formElements[3].value = await userData[0].habit_id
                 EditModal.formElements[3].nextElementSibling.id = await userData[0].habit_id
+                if (await userData[0].habit_status) {
+                    EditModal.formElements[3].checked = true
+                    EditModal.formElements[3].nextElementSibling.classList.add("fa-solid", "fa-check")
+                }
+
+
             })
         })
 
