@@ -79,25 +79,36 @@ export class EditModal {
 
 
     static async updateHabit(id) {
-        const habits = {
-            habit_title: this.formElements[0].value,
-            habit_description: this.formElements[1].value,
-            habit_category: this.formElements[2].value
-        }
-        const response = await ApiRequest.updateHabit(habits, id)
-        if (response.habit_id) {
+
+        if (this.formElements[0].value == "" || this.formElements[1].value == "") {
             Swal.fire({
                 position: 'center',
-                icon: 'success',
-                title: "Seu hábito foi editado",
-                showConfirmButton: false,
-                timer: 1500
-            }).then(() => EditModal.modal.classList.add('display-none')).then(async () => {
-                const allHabits = await ApiRequest.readAllHabits()
-                Dashboard.showTableHabits(allHabits)
+                icon: 'error',
+                title: "Preencha todos os campos!",
+                showConfirmButton: true,
             })
+        } else {
+
+            const habits = {
+                habit_title: this.formElements[0].value,
+                habit_description: this.formElements[1].value,
+                habit_category: this.formElements[2].value
+            }
+            const response = await ApiRequest.updateHabit(habits, id)
+            if (response.habit_id) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: "Seu hábito foi editado",
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => EditModal.modal.classList.add('display-none')).then(async () => {
+                    const allHabits = await ApiRequest.readAllHabits()
+                    Dashboard.showTableHabits(allHabits)
+                })
+            }
+            return habits
         }
-        return habits
     }
 
 }

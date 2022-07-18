@@ -57,6 +57,8 @@ export class EditProfileModal {
 
   static editModalCreator() {
     const modal = document.querySelector('body')
+    const { usr_name, usr_image } = JSON.parse(localStorage.getItem('@habits_kenzie-userInfo'))
+
     const createModalEdit = modal.insertAdjacentHTML('beforeend',
       `
   <div class = "modalThree close__buttonCreate">
@@ -71,12 +73,12 @@ export class EditProfileModal {
       
       <div class = "form__username--divisory">
           <label for="username">Nome</label>
-          <input type="text" placeholder = "Digitar título"class = "form__title" id = "username">
+          <input type="text"  value="${usr_name}" class="form__title" id="username" required="true">
       </div>
 
-      <div class = "form__userImg--divisory">
+      <div class="form__userImg--divisory">
           <label for="userImg">Descrição</label>
-          <input placeholder = "Digite a URL da imagem" class = 'form__userImg' name="" id="userImg">
+          <input type="text" value="${usr_image}" class='form__userImg' name="" id="userImg" required="true">
       </div>
 
       <button type = "submit" class = "form__btnEditUser">Concluir</button>
@@ -102,27 +104,37 @@ export class CreateEditProfile {
 
   static async editProfile() {
 
-    const profileEdit = {
-      usr_name: this.formElements[1].value,
-      usr_image: this.formElements[2].value
-    }
-    const response = await ApiRequest.updateProfile(profileEdit)
-    if (response.usr_email) {
+    if (this.formElements[1].value == "" || this.formElements[2].value == "") {
       Swal.fire({
         position: 'center',
-        icon: 'success',
-        title: 'Perfil editado com sucesso',
-        showConfirmButton: false,
-        timer: 1500
+        icon: 'error',
+        title: 'Preencha todos os campos!',
+        showConfirmButton: true,
       })
-        .then(() => this.modal.classList.add('close__buttonCreate'))
-        .then(() => {
-          localStorage.removeItem("@habits_kenzie-userInfo")
-          localStorage.setItem("@habits_kenzie-userInfo", JSON.stringify(response))
-          UserEditLogout.userInfoHeader()
+    } else {
+
+      const profileEdit = {
+        usr_name: this.formElements[1].value,
+        usr_image: this.formElements[2].value
+      }
+      const response = await ApiRequest.updateProfile(profileEdit)
+      if (response.usr_email) {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Perfil editado com sucesso',
+          showConfirmButton: false,
+          timer: 1500
         })
+          .then(() => this.modal.classList.add('close__buttonCreate'))
+          .then(() => {
+            localStorage.removeItem("@habits_kenzie-userInfo")
+            localStorage.setItem("@habits_kenzie-userInfo", JSON.stringify(response))
+            UserEditLogout.userInfoHeader()
+          })
+      }
+      return response
     }
-    return response
   }
 
 }
