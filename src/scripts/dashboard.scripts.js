@@ -50,12 +50,10 @@ CreateEditProfile.botaoModalEdit.addEventListener('click', (event) => {
 })
 
 CreateEditProfile.botaoSair.addEventListener('click', (event) => {
-
-
-
     event.preventDefault()
     CreateEditProfile.modal.classList.add('close__buttonCreate')
 })
+
 CreateEditProfile.btnCreate.addEventListener('click', async (event) => {
     event.preventDefault();
     await CreateEditProfile.editProfile()
