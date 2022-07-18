@@ -31,7 +31,7 @@ export class CreateHabitModal {
         <div class = "form__category--divisory">
             <label for="category">Categoria</label>
             <select name="" class = "form__category" id="category" >
-                <option selected>Selecionar Categoria</option>
+                <option value="" selected>Selecionar Categoria</option>
                 <option value="saude">💜 Saúde</option>  
                 <option value="estudos">🖊️ Estudos</option>
                 <option value="casa">🏠 Casa</option>
@@ -59,27 +59,38 @@ export class CreateModal {
 
 
     static async createHabit() {
-        const createHabit = {
-            habit_title: this.formElements[1].value,
-            habit_description: this.formElements[2].value,
-            habit_category: this.formElements[3].value
-        }
-        const response = await ApiRequest.createHabit(createHabit)
-        if (response.habit_id) {
+
+        if (this.formElements[1].value == "" || this.formElements[2].value == "" || this.formElements[3].value == "") {
             Swal.fire({
                 position: 'center',
-                icon: 'success',
-                title: "Seu hábito foi criado",
-                showConfirmButton: false,
-                timer: 1500
-            }).then(async () => {
-                let allHabits = await DashboardActions.getAllHabits()
-                Dashboard.showTableHabits(allHabits)
-                this.modal.classList.add('close__buttonCreate')
+                icon: 'error',
+                title: "Preencha todos os campos!",
+                showConfirmButton: true,
             })
+        } else {
 
+            const createHabit = {
+                habit_title: this.formElements[1].value,
+                habit_description: this.formElements[2].value,
+                habit_category: this.formElements[3].value
+            }
+            const response = await ApiRequest.createHabit(createHabit)
+            if (response.habit_id) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: "Seu hábito foi criado",
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(async () => {
+                    let allHabits = await DashboardActions.getAllHabits()
+                    Dashboard.showTableHabits(allHabits)
+                    this.modal.classList.add('close__buttonCreate')
+                })
+
+            }
+            return createHabit
         }
-        return createHabit
     }
 
 }
