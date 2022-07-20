@@ -1,6 +1,10 @@
 # 🏆 Entrega: Projeto Capstone
 
 Como já foi informado, você e sua equipe irão desenvolver um projeto durante essa semana. Colocando em prática os principais conceitos vistos até o momento em seu projeto. Esses conceitos são:
+## Usuário e Senha
+
+Email: grupo5Guilherme@mail.com
+Senha: e5654da2fa74dbe4ba689e5f3e78ee56
 
 ## Principais conceitos
 
